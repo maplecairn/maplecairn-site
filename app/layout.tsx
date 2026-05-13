@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Maple Cairn",
+    default: "Maple Cairn — Canadian personal finance + build log",
     template: "%s · Maple Cairn",
   },
   description:
-    "Canadian personal finance for the self-employed and a build-in-public log of shipping micro products with AI.",
+    "Canadian personal finance for self-employed builders: cards, taxes, and AI-powered micro products. Weekly writing and build logs from Toronto.",
 };
 
 export default function RootLayout({
