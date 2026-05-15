@@ -107,15 +107,18 @@ export default function Home() {
                   Writing
                 </h2>
               </div>
-              <a
-                href="/writing"
+              <Link
+                href="/sole-prop-stack"
                 className="text-sm text-[#5a544a] transition-colors hover:text-[#a8332a]"
               >
                 View all →
-              </a>
+              </Link>
             </div>
             <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-              <article className="flex flex-col">
+              <Link
+                href="/sole-prop-stack/canadian-credit-card-stack"
+                className="flex flex-col transition-opacity hover:opacity-90"
+              >
                 <div
                   className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
                   style={{ backgroundImage: GRADIENT_COVER }}
@@ -127,15 +130,15 @@ export default function Home() {
                     aria-hidden
                   />
                 </div>
-                <p className="text-xs text-[#8a8275]">May 13, 2026 · 8 min read</p>
+                <p className="text-xs text-[#8a8275]">May 21, 2026</p>
                 <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
-                  Best Canadian credit cards for self-employed in 2026
+                  My Canadian credit card stack as a sole prop
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
-                  What actually moves the needle on spend, insurance, and taxes when you&apos;re the employer
-                  of record.
+                  The four cards I actually use, the welcome offers I&apos;m running, and the spend
+                  categories that earn the most when you&apos;re self-employed in Canada.
                 </p>
-              </article>
+              </Link>
               <article className="flex flex-col">
                 <div
                   className="mb-4 flex h-[140px] items-center justify-center rounded-lg"

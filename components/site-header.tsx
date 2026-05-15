@@ -23,7 +23,7 @@ export function SiteHeader() {
             <Link href="/build-log" className="transition-colors hover:text-[#a8332a]">
               Build Log
             </Link>
-            <Link href="/#writing" className="transition-colors hover:text-[#a8332a]">
+            <Link href="/sole-prop-stack" className="transition-colors hover:text-[#a8332a]">
               Sole Prop Stack
             </Link>
             <Link href="/#tools" className="transition-colors hover:text-[#a8332a]">
