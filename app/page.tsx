@@ -1,52 +1,9 @@
 import { Compass, CreditCard, TrendingUp } from "lucide-react";
-
-function CairnNavIcon({
-  className,
-  width = 32,
-  height = 36,
-}: {
-  className?: string;
-  width?: number;
-  height?: number;
-}) {
-  return (
-    <svg
-      className={className}
-      width={width}
-      height={height}
-      viewBox="0 0 32 36"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <ellipse cx="16" cy="28" rx="13" ry="4" fill="#9b8e7a" />
-      <ellipse cx="16" cy="20" rx="10" ry="3.5" fill="#b5a892" />
-      <ellipse cx="16" cy="13" rx="7.5" ry="3" fill="#c9bea8" />
-      <ellipse cx="16" cy="7.5" rx="5" ry="2.3" fill="#d9d0bd" />
-      <path
-        d="M16 2 L16.8 3.5 L18.5 3.2 L17.6 4.6 L18.6 6 L17 5.6 L16 7 L15 5.6 L13.4 6 L14.4 4.6 L13.5 3.2 L15.2 3.5 Z"
-        fill="#a8332a"
-      />
-    </svg>
-  );
-}
-
-function MapleTrustIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M12 2 L13.5 6 L17.5 5 L15.5 8.5 L18.5 11 L14 12 L15 16 L12 14 L9 16 L10 12 L5.5 11 L8.5 8.5 L6.5 5 L10.5 6 Z"
-        fill="#a8332a"
-      />
-    </svg>
-  );
-}
+import Link from "next/link";
+import { MapleTrustIcon } from "@/components/cairn-icons";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { BORDER_MEDIUM, BORDER_SUBTLE } from "@/lib/constants";
 
 function HeroCairnIllustration({ className }: { className?: string }) {
   return (
@@ -80,52 +37,13 @@ function HeroCairnIllustration({ className }: { className?: string }) {
   );
 }
 
-const BORDER_SUBTLE = "rgba(0,0,0,0.08)";
-const BORDER_MEDIUM = "rgba(0,0,0,0.1)";
 const GRADIENT_COVER =
   "linear-gradient(135deg, rgba(168,51,42,0.06), rgba(168,51,42,0.12))";
 
 export default function Home() {
   return (
     <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
-      <header
-        className="sticky top-0 z-50 border-b bg-[#faf7f2] px-10 py-5"
-        style={{ borderColor: BORDER_SUBTLE }}
-      >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <a href="/" className="flex shrink-0 items-center gap-3">
-            <CairnNavIcon className="shrink-0" />
-            <span className="font-serif text-lg font-medium tracking-tight sm:text-xl">
-              Maple Cairn
-            </span>
-          </a>
-          <div className="flex items-center gap-3 sm:gap-6">
-            <nav
-              className="hidden items-center gap-6 text-sm text-[#5a544a] md:flex"
-              aria-label="Primary"
-            >
-              <a href="#build-log" className="transition-colors hover:text-[#a8332a]">
-                Build Log
-              </a>
-              <a href="#writing" className="transition-colors hover:text-[#a8332a]">
-                Sole Prop Stack
-              </a>
-              <a href="#tools" className="transition-colors hover:text-[#a8332a]">
-                Tools
-              </a>
-              <a href="/about" className="transition-colors hover:text-[#a8332a]">
-                About
-              </a>
-            </nav>
-            <a
-              href="#subscribe"
-              className="shrink-0 rounded-full bg-[#a8332a] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#8e2b24]"
-            >
-              Subscribe
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="border-b px-10 py-16" style={{ borderColor: BORDER_SUBTLE }}>
@@ -279,8 +197,9 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
-              <article
-                className="rounded-xl bg-white p-6"
+              <Link
+                href="/build-log/maple-cairn-in-two-days"
+                className="block rounded-xl bg-white p-6 transition-shadow hover:shadow-sm"
                 style={{ border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
@@ -307,9 +226,9 @@ export default function Home() {
                     <span className="font-semibold text-[#1a1a1a]">Cursor</span>
                     <span> · Next.js · Vercel</span>
                   </p>
-                  <span className="ml-auto text-[#5a544a]">Read build log →</span>
+                  <span className="ml-auto font-medium text-[#a8332a]">Read build log →</span>
                 </div>
-              </article>
+              </Link>
               <article
                 className="rounded-xl bg-white p-6"
                 style={{ border: `0.5px solid ${BORDER_MEDIUM}` }}
@@ -483,44 +402,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer
-        className="border-t px-10 py-12"
-        style={{ borderColor: BORDER_SUBTLE, backgroundColor: "#faf7f2" }}
-      >
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <a href="/" className="flex items-center gap-2.5">
-            <CairnNavIcon className="shrink-0" width={22} height={26} />
-            <span className="font-serif text-base font-medium">Maple Cairn</span>
-          </a>
-          <nav
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#5a544a]"
-            aria-label="Footer"
-          >
-            <a href="/about" className="hover:text-[#a8332a]">
-              About
-            </a>
-            <span className="text-[#8a8275]" aria-hidden>
-              /
-            </span>
-            <a href="/now" className="hover:text-[#a8332a]">
-              Now
-            </a>
-            <span className="text-[#8a8275]" aria-hidden>
-              /
-            </span>
-            <a href="/affiliate-disclosure" className="hover:text-[#a8332a]">
-              Affiliate Disclosure
-            </a>
-            <span className="text-[#8a8275]" aria-hidden>
-              /
-            </span>
-            <a href="/rss" className="hover:text-[#a8332a]">
-              RSS
-            </a>
-          </nav>
-          <p className="text-xs text-[#8a8275] lg:text-right">© 2026 · Built in Toronto, Canada</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
