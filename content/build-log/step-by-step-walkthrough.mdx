@@ -1,0 +1,351 @@
+---
+title: "How to build a Canadian PF blog from zero to live domain (the step-by-step)"
+description: "The actual commands, configs, and decisions behind building Maple Cairn — the tactical companion to Entry 01."
+date: "2026-05-22"
+slug: "step-by-step-walkthrough"
+entry_number: "02"
+---
+
+In [Entry 01](/build-log/maple-cairn-in-two-days), I walked through the narrative version of building this site. Why I'm doing it, what surprised me, what mattered. This is the tactical companion.
+
+Same project, different angle. If you've been thinking about shipping something similar (a blog, a personal site, a small SaaS landing page) this is what the actual sequence looks like.
+
+## Before you start
+
+What this assumes about you: you can navigate folders, you've used the command line a few times, and you've heard of Git even if you've never used it seriously. If you're more advanced than that, skip ahead. If you're less, the post still works but expect to Google some terms (or use the callouts I've sprinkled throughout).
+
+What this assumes about your machine: Windows, Mac, or Linux. The whole post is written from a Windows experience because that's what I had. Mac and Linux readers can skip the WSL2 section (Step 2) and otherwise the steps are identical.
+
+What you'll have at the end: a real website on a real custom domain, mobile-responsive, with auto-deploy on every code change, and a blog you can publish posts to by saving a single file. Total cost: ~$31 CAD for the domain (one-time), then about $20/month for Claude Pro if you want it. Vercel hosting and GitHub are free at this scale.
+
+Total time: realistically two long days. Less if you've done some of this before. Could stretch to a week if you fuss over design like I did.
+
+One thing to know upfront. The hard part of this isn't the technical steps. The technical steps are well-documented and AI tools handle most of them. The hard part is scope discipline, picking a small enough v1, and shipping something you're slightly embarrassed by. I'll come back to that at the end.
+
+## 1. Lock the brand before writing any code
+
+The biggest mistake I'd make if I started over: rushing to code before knowing what I was building.
+
+Spend at least an hour on the name. The friction here is real. A good name is short, available on the .ca and .com, available on Instagram + TikTok + X + YouTube, and means something to you. Most names fail at least one of these tests.
+
+The single most useful tool here is [namechk.com](https://namechk.com). Type a candidate name, it checks availability across all major social platforms and TLDs simultaneously. Saves you from picking a name only to discover the .ca is taken or the Instagram handle is gone.
+
+> **What's a TLD?**
+> The part after the dot in a domain name. ".com" is a TLD. So is ".ca", ".io", ".dev". You can register the same name under multiple TLDs (the way I have both maplecairn.ca and maplecairn.com), and each one is technically a separate domain you own.
+
+Once you've landed on a name:
+
+- Register the .ca AND .com at [Namecheap](https://namecheap.com). For Canadian projects I'd buy both. Combined with WHOIS privacy, it ran me about $31 CAD total. The .com redirects to the .ca later.
+- Create a brand Gmail (`yourname@gmail.com`). This is your single email for the site, for affiliate program signups, for newsletter platform accounts.
+- Grab the social handles even if you don't plan to use them all yet. Free, takes 15 minutes, prevents future heartbreak when you decide you do want them.
+
+> **What's WHOIS privacy?**
+> Every domain has a public record of who owns it, including your name, address, and phone number. WHOIS privacy hides your personal info behind the registrar's contact info instead. Namecheap includes this free; most registrars charge $5-15/year for it. Get it.
+
+Don't skip the .com purchase even if you're going .ca-first. $13 to lock the .com is worth not having someone else squat on it the day you start gaining traction.
+
+## 2. Set up your dev environment safely
+
+Quick note for Mac and Linux users: you can skip the WSL2 install steps below — your operating system already runs Unix natively. But the security argument still applies. npm packages running on your machine can access files in your home directory. If you have tax documents, crypto keys, or other sensitive files mixed with your dev environment, consider running risky installs in Docker containers, or use a separate user account for dev. The rest of this section is Windows-specific install instructions.
+
+This is the most important section of this whole post. If you're on Windows and your laptop also has your tax documents, banking sessions, or any financially sensitive files, **do not install Node directly on Windows**. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) and do all dev work inside it.
+
+> **What's WSL2?**
+> Windows Subsystem for Linux. A real Linux operating system running inside Windows. Looks like a regular terminal window when you open it, but everything inside it is sandboxed from your normal Windows files. Think of it as a fully isolated workspace on the same physical machine. Your tax docs and banking sessions live on the Windows side. Your dev work lives in the Linux sandbox.
+
+Here's why this matters. Modern web development pulls hundreds of small packages from public registries every time you start a project. Most are vetted, open-source, and used by millions of developers. But compromised npm packages have historically been used to steal credentials, exfiltrate wallet keys, and capture banking sessions. The risk on any given install is small. The risk compounds over a year of installing dozens of new tools.
+
+> **What's npm?**
+> Node Package Manager. The default tool for installing JavaScript libraries (called "packages"). When you run `npm install something`, npm downloads that package and all its dependencies from a giant public registry. The `-g` flag means "install globally so I can use it anywhere," vs. local install which only applies to the current project.
+
+WSL2 contains everything you install inside a Linux sandbox. Any package you install can read and write files inside the Linux environment, but it cannot reach your Windows-side files.
+
+The setup itself takes about 30 minutes following Microsoft's installer. The short version:
+
+1. Open Windows PowerShell as Administrator
+2. Run `wsl --install -d Ubuntu`
+3. Restart when prompted
+4. Open Ubuntu from your Start menu after restart
+5. Create a Linux username and password when prompted (these are separate from your Windows credentials)
+
+You now have a Linux terminal running inside Windows. From this point forward, every command in this post runs inside this Ubuntu terminal, not in Windows PowerShell.
+
+Inside Ubuntu, install Node via [nvm](https://github.com/nvm-sh/nvm) rather than the default Ubuntu package manager. nvm lets you switch between Node versions easily, which matters when different projects need different versions.
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+node --version
+```
+
+The last command should print a version like `v22.x.x` or `v24.x.x`. If it doesn't, close and reopen Ubuntu and try again.
+
+You also need Git and an SSH key for GitHub.
+
+> **What's an SSH key?**
+> A pair of cryptographic files (one private, kept on your computer; one public, shared with services like GitHub) that prove your identity without passwords. When you push code to GitHub, it verifies the request came from a machine holding the matching private key. Way more secure than a password, and you set it up once.
+
+Generate one with a no-reply email for privacy:
+
+```bash
+ssh-keygen -t ed25519 -C "your-username@users.noreply.github.com"
+```
+
+Hit Enter at each prompt for the defaults. You can skip the passphrase for now.
+
+## 3. Scaffold your first Next.js project
+
+Now the actual building begins.
+
+In your Ubuntu terminal, create a folder for your dev projects and scaffold a Next.js app:
+
+```bash
+mkdir ~/dev
+cd ~/dev
+npx create-next-app@latest yourproject
+```
+
+> **What's Next.js?**
+> A web framework built on top of React. Handles routing (which URL shows which page), server-side rendering, and a bunch of optimization stuff out of the box. It's what most modern websites are built with in 2026. The reason we picked it: pairs natively with Vercel hosting and has the smoothest deploy story.
+
+You'll get a series of prompts. Choose these answers for the cleanest starting point:
+
+- TypeScript: **Yes** (catches errors before they ship)
+- ESLint: **Yes**
+- Tailwind CSS: **Yes** (the styling system that pairs cleanly with Next.js)
+- `src/` directory: **No** (keeps file paths shorter)
+- App Router: **Yes**
+- Turbopack: **Yes** (faster dev experience)
+- Custom import alias: **No**
+
+The scaffold takes 1-2 minutes. You now have a working Next.js project with TypeScript, Tailwind, and the modern App Router setup. Verify it runs:
+
+```bash
+cd yourproject
+npm run dev
+```
+
+Open `http://localhost:3000` in your browser. You should see Next.js's welcome page.
+
+> **What's localhost?**
+> A web address that points to your own computer. When you run `npm run dev`, Next.js starts a tiny web server on your laptop. `http://localhost:3000` lets you visit it in your browser to test changes. Nobody else on the internet can see this — it's just for you to test before pushing live. The `3000` is the port number; you can have multiple local servers running on different ports.
+
+Stop the dev server with Ctrl+C when you're done admiring it.
+
+If anything errors here, the most common issue is Node version. Make sure `node --version` shows v18 or higher.
+
+## 4. Push to GitHub and connect Vercel
+
+Two accounts you need: [GitHub](https://github.com) and [Vercel](https://vercel.com). Sign up for both with the brand Gmail you created in Step 1.
+
+In GitHub, create a new repository. Name it something descriptive like `yourproject-site`. You'll face a decision: public or private.
+
+**Public repo**: anyone can see your code. This is what "build in public" looks like. It also means Vercel's free Hobby tier works without configuration.
+
+**Private repo**: only you can see the code. Vercel's free tier supports private repos for personal accounts, but if you set up a GitHub organization (which I did, for brand separation), private repos require Vercel's paid Pro plan. Worth knowing before you decide.
+
+I went public for build-in-public credibility. You can change your mind later.
+
+Don't initialize the GitHub repo with a README — your local project already has one. Just click "Create repository" and copy the SSH URL it gives you (looks like `git@github.com:yourname/yourproject.git`).
+
+> **What does git actually do?**
+> Git is version control. It tracks every change you make to your code over time, so you can roll back if something breaks, see what you changed yesterday, or collaborate with other people without overwriting each other. GitHub is a website that hosts your git repositories (called "repos") online. Local git on your laptop, remote git on GitHub, the two stay in sync via push and pull commands.
+
+Connect your local project to the remote repo, in your Ubuntu terminal:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin git@github.com:yourname/yourproject.git
+git push -u origin main
+```
+
+> **What did those commands do?**
+> `git init` makes the folder a git repo. `git add .` stages all current files as ready to save. `git commit -m "message"` saves a snapshot with a description. `git branch -M main` renames your default branch to "main" (used to be "master"). `git remote add origin` tells local git where the GitHub copy lives. `git push -u origin main` sends your snapshot up to GitHub.
+
+If `git push` fails with a permissions error, you need to add your SSH key to your GitHub account. Print the public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Copy the entire output. In GitHub, go to Settings → SSH and GPG keys → New SSH key. Paste it in and save. Try `git push` again.
+
+Now connect Vercel:
+
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Click "Import" next to your GitHub repo
+3. Accept all defaults
+4. Click Deploy
+
+Vercel gives you a URL like `your-project.vercel.app` within 60 seconds. Your site is live.
+
+> **What's auto-deploy?**
+> Vercel watches your GitHub repo. Every time you push new code to your main branch, Vercel automatically builds and deploys it within 30-60 seconds. No FTP, no manual upload, no "click here to deploy." Save a file → git push → it's live. This is one of the genuinely magical parts of modern web hosting.
+
+From here forward, every `git push` to your main branch triggers a fresh deploy in 30-60 seconds.
+
+## 5. Point your custom domain at Vercel
+
+In Vercel, navigate to your project's Settings → Domains and add your custom domain (the .ca or .com you bought in Step 1).
+
+Vercel will display DNS records you need to add. The exact records change occasionally, but the pattern is:
+
+- An `A` record pointing your apex domain (`@`) to Vercel's IP
+- A `CNAME` record pointing `www` to `cname.vercel-dns.com`
+
+> **What are DNS records?**
+> DNS (Domain Name System) is the internet's phone book. It translates human-friendly names (`yourname.ca`) into machine addresses (Vercel's servers). An "A record" maps your domain to a specific IP address. A "CNAME record" maps your domain to another domain name. You're telling the DNS system "when someone types yourname.ca, send them to Vercel."
+
+Switch to Namecheap → Domain List → click "Manage" next to your domain → Advanced DNS tab. Delete any default records that came with the domain (Namecheap adds a parking page record by default). Add the exact records Vercel specified.
+
+DNS propagation takes anywhere from 5 minutes to 2 hours. Most of the time it's done in 15 minutes. While you wait, set up the .com to redirect to the .ca:
+
+- In Namecheap, go to the .com domain's settings
+- Find the Redirect Domain section
+- Set it to redirect to `https://yourname.ca`
+
+When DNS propagation completes, your custom domain shows the Next.js welcome page. You now have a real website on a real domain with HTTPS, CDN, and auto-deploy.
+
+> **What's HTTPS and CDN?**
+> HTTPS is the encrypted version of HTTP — the little padlock in your browser's address bar. Vercel sets this up automatically for any domain you connect, including custom domains. CDN stands for Content Delivery Network — copies of your site stored on servers around the world, so visitors in Tokyo get it from a Tokyo server (fast) instead of from Vercel's headquarters (slow). Free with Vercel.
+
+End-to-end cost so far: $31 for the domains. End-to-end time: 60-90 minutes if everything goes smoothly.
+
+## 6. Design the homepage iteratively with Cursor and Claude
+
+This is the section that took the longest. Not because it was hard, but because design iteration always takes longer than you think it will.
+
+Install [Cursor](https://cursor.com), an AI-powered code editor. Free tier is plenty for early work. Cursor opens your WSL2-based project automatically through the WSL extension (it'll prompt you to install it the first time).
+
+> **What's an IDE / code editor?**
+> A text editor specifically designed for writing code. Has syntax highlighting (colors for different code parts), auto-completion, file navigation, etc. Cursor is a fork of VS Code (the most popular code editor) with AI baked in. You could write code in Notepad, but you really shouldn't.
+
+Open your project: File → Open Folder → navigate to `/home/yourname/dev/yourproject`.
+
+The workflow that worked best for me: design the homepage in conversation with Claude (in a separate browser tab), iterating on layout and copy with image generation for visual reference, then translate the approved design into a precise Cursor prompt with exact hex codes and dimensions.
+
+A few hard lessons from going through this four times:
+
+**Be specific about colors.** Don't say "Canadian red." Say `#a8332a`.
+
+> **What's a hex code?**
+> A six-character code that precisely identifies one specific color. `#a8332a` is the exact brick-red I use on this site. `#ffffff` is pure white. `#000000` is pure black. Designers use hex codes because "red" is ambiguous, but `#a8332a` is exactly one color out of 16 million.
+
+AI tools execute precise specs beautifully and guess badly. The first three iterations of my design came back coral instead of brick because I wasn't specific enough.
+
+**Iterate in small slices.** "Redesign the hero section" works. "Redesign the entire site" produces mush. Cursor handles one section at a time well.
+
+**Always check mobile.** Cursor will produce desktop-perfect code that breaks on phones. Use Chrome DevTools' device toolbar (Ctrl+Shift+M on Windows) to test as you build. Every section you finish, resize to phone width and verify.
+
+**The skill that matters most isn't writing code.** It's scoping requests well and iterating fast. Being precise about what you want, anticipating edge cases, accepting that the first output won't be right. The same instinct that makes you good at managing people or running consulting engagements is exactly what makes you good at directing AI coding tools.
+
+When your homepage lands somewhere you like, commit and ship:
+
+```bash
+git add .
+git commit -m "Homepage v1"
+git push origin main
+```
+
+Vercel auto-deploys in under a minute. Refresh your domain. You now have a custom-designed homepage live on the internet.
+
+## 7. Add a blog with MDX
+
+Hand-coding each blog post as a separate Next.js page gets miserable fast. Set up MDX infrastructure once, then every future post is a five-minute file creation rather than an hour of code.
+
+> **What's MDX?**
+> Markdown + JSX. Markdown is the simple text formatting you see on GitHub READMEs and Reddit (`# Heading`, `**bold**`, `[link](url)`). JSX is React's syntax for writing components. MDX combines them — you write a blog post mostly in plain Markdown (fast, readable) but can drop in interactive React components when you need to. For text-heavy blogs, plain Markdown is plenty.
+
+A quick note on the stack choice. There's a "true MDX" approach using `@next/mdx` and a simpler approach using `gray-matter` + `react-markdown` + `remark-gfm`. The simpler approach can't embed React components inside posts, but for text-heavy blogs it's plenty. Cursor picked the simpler approach when I asked it to set up blog infrastructure, and I've had zero regrets. Saves complexity. Can migrate later if needed.
+
+In Cursor's AI chat, paste:
+
+```
+Set up MDX blog infrastructure for this Next.js App Router project.
+
+1. Install gray-matter, react-markdown, and remark-gfm.
+2. Create a content/blog/ folder at the project root for MDX post files.
+3. Create lib/posts.ts with helpers that read MDX files from content/blog/, parse frontmatter with gray-matter, and return typed post objects (title, description, date, slug, content, readMinutes). Include getPostSlugs(), getPostBySlug(slug), and getAllPosts() sorted by date descending.
+4. Create app/blog/page.tsx as the blog index — list all posts with title, date, and description, linking to each post page.
+5. Create app/blog/[slug]/page.tsx as the post template. Use generateStaticParams for SSG, generateMetadata for per-post title/description, and render the content with react-markdown + remark-gfm.
+6. Style with Tailwind to match the existing site (same fonts, colors, spacing).
+7. Add one sample post at content/blog/hello-world.mdx so I can verify the wiring end to end.
+
+Frontmatter shape:
+---
+title: "..."
+description: "..."
+date: "YYYY-MM-DD"
+slug: "..."
+---
+```
+
+> **What's frontmatter?**
+> The block of metadata at the top of an MDX file, wrapped in three dashes. It's where you put the post's title, description, date, and any other info the site needs to render the post and list it in indexes. Not visible to readers — it's just for the system. Standard pattern in static site generators.
+
+Cursor scaffolds the whole thing in 3-5 minutes. Once it's done, a blog post becomes a single MDX file like this:
+
+```mdx
+---
+title: "My first post"
+description: "Short description for SEO"
+date: "2026-05-22"
+slug: "my-first-post"
+---
+
+The actual post content goes here. Plain Markdown.
+
+## Section heading
+
+More content. **Bold** and *italic* work. [Links work too](https://example.com).
+```
+
+Save the file. Git commit. Git push. Thirty seconds later, the post is live at `yourname.ca/blog/my-first-post`. That's the entire workflow for the rest of the site's life.
+
+## The actual time and cost breakdown
+
+End-to-end, what this cost me:
+
+| Item | Cost |
+|---|---|
+| Domain (.ca + .com with privacy) | $31 CAD one-time |
+| GitHub | Free |
+| Vercel Hobby plan | Free |
+| Cursor free tier | Free |
+| Claude Pro (optional) | $20/month |
+
+Total to ship: $31. Total ongoing: $0-20/month depending on whether you upgrade Claude.
+
+And the time:
+
+- Naming + brand accounts: 2-3 hours
+- WSL2 + dev environment: 1-2 hours
+- Project scaffold + Vercel deploy: 30 minutes
+- Domain + DNS: 30 minutes (mostly waiting)
+- Homepage design iteration: 4-6 hours (this is where the time goes)
+- MDX blog infrastructure: 1-2 hours
+- First post written: 2-4 hours
+
+Realistically: two long days of focused work, spread across a long weekend.
+
+## What I'd do differently
+
+If I started over knowing what I know now:
+
+**I'd set up WSL2 first, not midway through.** I started installing things directly on Windows and switched to WSL2 about four hours into Day 1, after the security paranoia caught up with me. Switching mid-stream cost me an hour I didn't plan for. If you're on Windows with sensitive personal files on the same laptop, do this before your first install.
+
+**I'd buy both domains immediately.** I initially only bought the .ca, then went back for the .com. Two trips, two checkout flows, easy to miss. Buy them in the same Namecheap transaction.
+
+**I'd resist the design rabbit hole.** I went through four iterations of the homepage before landing on something I liked. Two would have been enough. Ship at v2, iterate live based on real reactions.
+
+**I'd ship the first blog post the same day the site goes live.** I waited two days, and those two days felt much longer than they should have. The site without content is uncomfortable to look at. Even a rough first post is better than the placeholder.
+
+The mechanics of getting a site live are easier than they've ever been. What's hard is the discipline to actually finish, picking a small enough scope, and shipping something you're slightly embarrassed by. The unshipped perfect version doesn't exist. The shipped rough one does.
+
+The next post is a Sole Prop Stack entry: my current Canadian credit card stack, what I actually use, and the hacks that move the needle. If that sounds useful, the most helpful thing right now is to share this post with one person who might find it useful.
+
+— Michael K
