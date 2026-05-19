@@ -14,6 +14,7 @@ const proseClassName = [
   "[&_ol]:mb-5 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6",
   "[&_li]:pl-1",
   "[&_code]:rounded [&_code]:bg-[rgba(0,0,0,0.05)] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_code]:text-[#1a1a1a]",
+  "[&_pre]:whitespace-pre-wrap [&_pre]:break-words",
   "[&_blockquote]:my-6 [&_blockquote]:border-l-2 [&_blockquote]:border-[#a8332a]/40 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#5a544a]",
   "[&_hr]:my-10 [&_hr]:border-[rgba(0,0,0,0.08)]",
 ].join(" ");
