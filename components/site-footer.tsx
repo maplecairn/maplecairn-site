@@ -17,25 +17,25 @@ export function SiteFooter() {
           className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#5a544a]"
           aria-label="Footer"
         >
-          <Link href="/about" className="hover:text-[#a8332a]">
+          <Link href="/" className="hover:text-[#a8332a]">
             About
           </Link>
           <span className="text-[#8a8275]" aria-hidden>
             /
           </span>
-          <Link href="/now" className="hover:text-[#a8332a]">
+          <Link href="/" className="hover:text-[#a8332a]">
             Now
           </Link>
           <span className="text-[#8a8275]" aria-hidden>
             /
           </span>
-          <Link href="/affiliate-disclosure" className="hover:text-[#a8332a]">
+          <Link href="/" className="hover:text-[#a8332a]">
             Affiliate Disclosure
           </Link>
           <span className="text-[#8a8275]" aria-hidden>
             /
           </span>
-          <Link href="/rss" className="hover:text-[#a8332a]">
+          <Link href="/" className="hover:text-[#a8332a]">
             RSS
           </Link>
         </nav>

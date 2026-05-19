@@ -29,7 +29,7 @@ export function SiteHeader() {
             <Link href="/#tools" className="transition-colors hover:text-[#a8332a]">
               Tools
             </Link>
-            <Link href="/about" className="transition-colors hover:text-[#a8332a]">
+            <Link href="/" className="transition-colors hover:text-[#a8332a]">
               About
             </Link>
           </nav>
