@@ -44,3 +44,6 @@ CLAUDE.md
 # AI context files (kept local only)
 CLAUDE.md
 AGENTS.md
+
+# WSL/NTFS artifacts from copying files in from Windows
+*:Zone.Identifier

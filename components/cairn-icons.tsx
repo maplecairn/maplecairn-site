@@ -8,6 +8,28 @@ export function CairnNavIcon({
   height?: number;
 }) {
   return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/logo/cairn-256.png"
+      alt=""
+      width={width}
+      height={height}
+      className={className}
+      aria-hidden
+    />
+  );
+}
+
+export function CairnNavIconPlaceholder({
+  className,
+  width = 32,
+  height = 36,
+}: {
+  className?: string;
+  width?: number;
+  height?: number;
+}) {
+  return (
     <svg
       className={className}
       width={width}

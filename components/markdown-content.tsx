@@ -4,8 +4,6 @@ import remarkGfm from "remark-gfm";
 
 const proseClassName = [
   "text-base leading-relaxed text-[#5a544a]",
-  "[&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:text-[#1a1a1a]",
-  "[&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-medium [&_h3]:text-[#1a1a1a]",
   "[&_p]:mb-5",
   "[&_strong]:font-semibold [&_strong]:text-[#1a1a1a]",
   "[&_em]:italic",
@@ -17,6 +15,10 @@ const proseClassName = [
   "[&_pre]:whitespace-pre-wrap [&_pre]:break-words",
   "[&_blockquote]:my-6 [&_blockquote]:border-l-2 [&_blockquote]:border-[#a8332a]/40 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#5a544a]",
   "[&_hr]:my-10 [&_hr]:border-[rgba(0,0,0,0.08)]",
+  "[&_table]:my-6 [&_table]:w-full [&_table]:border-collapse [&_table]:text-sm",
+  "[&_thead]:border-b-2 [&_thead]:border-[#dcd2c3]",
+  "[&_th]:py-2 [&_th]:pr-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-[#1a1a1a]",
+  "[&_td]:py-3 [&_td]:pr-4 [&_td]:border-b [&_td]:border-[rgba(0,0,0,0.06)] [&_td]:align-top",
 ].join(" ");
 
 export function MarkdownContent({ content }: { content: string }) {
@@ -41,6 +43,51 @@ export function MarkdownContent({ content }: { content: string }) {
           }
 
           return <Link href={href}>{children}</Link>;
+        },
+        h2: ({ children }) => (
+          <>
+            <div
+              aria-hidden
+              className="mt-12 flex items-center gap-4"
+            >
+              <span className="h-px flex-1 bg-[#dcd2c3]" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo/cairn-256.png"
+                alt=""
+                className="h-9 w-auto"
+              />
+              <span className="h-px flex-1 bg-[#dcd2c3]" />
+            </div>
+            <h2 className="mt-3 mb-5 font-serif text-2xl font-semibold tracking-tight text-[#1a1a1a] sm:text-3xl">
+              {children}
+            </h2>
+          </>
+        ),
+        h3: ({ children }) => (
+          <h3 className="mt-10 mb-2 font-serif text-lg font-semibold text-[#1a1a1a] sm:text-xl">
+            {children}
+          </h3>
+        ),
+        img: ({ src, alt }) => {
+          if (typeof src !== "string") {
+            return null;
+          }
+
+          const isCard = src.includes("/images/cards/");
+          const isLogo = src.includes("/images/platform/");
+          const isHero = src.includes("/images/heroes/");
+
+          const className = isHero
+            ? "mb-10 h-auto w-full max-w-full rounded-lg"
+            : isCard
+              ? "mt-6 mb-8 h-auto w-full max-w-[320px] rounded-lg"
+              : isLogo
+                ? "mt-4 mb-6 h-auto w-full max-w-[200px]"
+                : "my-8 h-auto max-w-full rounded-lg";
+
+          // eslint-disable-next-line @next/next/no-img-element
+          return <img src={src} alt={alt ?? ""} className={className} />;
         },
         }}
       >

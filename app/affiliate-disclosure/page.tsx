@@ -1,0 +1,95 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { MarkdownContent } from "@/components/markdown-content";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { BORDER_SUBTLE } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Affiliate Disclosure",
+  description:
+    "How affiliate marketing works on Maple Cairn, who I'm partnered with, and what each side gets out of it.",
+};
+
+const content = `Maple Cairn includes affiliate links to a small number of products and services I personally use. When you sign up through one of these links, I may earn a referral fee, commission, or platform-tier benefit. In most cases, you (the reader) also get a benefit on your end. The form varies by affiliate and is laid out below.
+
+**What affiliate compensation does and does not do:**
+
+- It helps support the cost of running this site and the time I put into the writing.
+- It does not change the products I recommend or how I describe them.
+- It does not change the price you pay.
+- It does not give me access to your personal information beyond what the platform itself tracks (typically: that the sign-up came from my link, sometimes the rebate amount).
+
+If a product I write about is not an affiliate relationship, I'll say so explicitly.
+
+## Current affiliate relationships
+
+| Product | Type | What you get | What I get |
+|---|---|---|---|
+| [Chexy](https://app.chexy.co?ref=wCR3ekxk9KT2IM4ncAsOd873BZG2) | Direct referral | Lower Chexy fees through the referral mechanic | Lower Chexy fees on my own future payments, progressing toward Chexy's lower-fee tiers (Pink 1.5%, Gold 1.0%, Elite 0.5%) |
+| [Rakuten Canada](https://www.rakuten.ca/r/maplecairn) | Direct referral | $30 cash bonus when you reach Rakuten's first-purchase threshold | $30 referral credit |
+| [Wealthsimple](https://www.wealthsimple.com/invite/MZEDLB) | Direct referral | $25 cash bonus when you fund any Wealthsimple account | $25 referral credit |
+| [Amex Cobalt via GCR](https://www.greatcanadianrebates.ca/register.php?r=292741&p=Amex-Cobalt) | GCR-mediated | $40 GCR cash back rebate on card approval, plus the Amex welcome offer | GCR referral commission |
+| [Scotia Momentum Visa Infinite+ via GCR](https://www.greatcanadianrebates.ca/register.php?r=292741&p=Scotia-Momentum-Infinite) | GCR-mediated | $100 GCR cash back rebate on card approval, plus the Scotia welcome offer | GCR referral commission |
+| [Great Canadian Rebates](https://www.greatcanadianrebates.ca/?refer-a-friend=292741) | Direct referral | Standard GCR account, no special bonus | Small referral commission for the sign-up |
+| [Claude (Anthropic)](https://claude.ai/referral/mPo9S2mSLA) | Direct referral | 1-week free trial of Claude Pro | Referral credit on my Claude account |
+
+This list grows as I add new affiliates. The current set covers the products I've actually written about. If I add an affiliate relationship for a product I haven't written about yet, it will show up here before any post links to it.
+
+## How Great Canadian Rebates works
+
+GCR is a Canadian cash back portal. When you apply for a credit card through one of GCR's links, GCR pays you a cash back rebate after the card is approved, and the card issuer pays GCR a referral fee. I get a small portion of GCR's fee for referring you to GCR.
+
+To actually receive your GCR rebate, you have to:
+
+- Apply directly through the GCR link without browsing to other pages mid-application
+- Save the reference number the issuer provides at application
+- Be a first-time applicant for that specific card
+- Follow up with GCR within 3 months if the rebate hasn't posted
+
+GCR publishes their full terms on each card's product page. The rebate amounts listed above are current as of writing and may change.
+
+## Tools I link without an affiliate relationship
+
+The Tools section of the homepage lists Cursor, Claude, Vercel, and Beehiiv. The Claude link is a referral link (above). The Cursor, Vercel, and Beehiiv links are not affiliate. I link them because I use them. If any of those relationships change to affiliate in the future, I'll update this page.
+
+## Things I won't do
+
+- I won't accept money to recommend something I don't actually use.
+- I won't hide an affiliate relationship to make a recommendation look more "editorial."
+- I won't recommend a product purely because the affiliate payout is higher than a competitor's.
+
+## Contact
+
+If you have questions about any of this or notice something you think is misleading, the contact page is the way to reach me.
+`;
+
+export default function AffiliateDisclosurePage() {
+  return (
+    <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
+      <SiteHeader />
+      <main className="border-b px-10 py-16" style={{ borderColor: BORDER_SUBTLE }}>
+        <article className="mx-auto max-w-2xl">
+          <Link
+            href="/"
+            className="text-sm font-medium text-[#a8332a] hover:underline"
+          >
+            ← Back to home
+          </Link>
+          <h1 className="mt-8 font-serif text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
+            Affiliate Disclosure
+          </h1>
+          <p className="mt-4 text-sm text-[#5a544a]">Last updated: May 28, 2026</p>
+          <p className="mt-6 text-lg leading-relaxed text-[#5a544a]">
+            How affiliate marketing works on Maple Cairn, who I&apos;m partnered with, and
+            what each side gets out of it.
+          </p>
+          <div className="mt-12">
+            <MarkdownContent content={content} />
+          </div>
+        </article>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}
