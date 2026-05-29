@@ -7,8 +7,10 @@ import { SiteHeader } from "@/components/site-header";
 import { BORDER_MEDIUM, BORDER_SUBTLE, NEWSLETTER_FORM_URL } from "@/lib/constants";
 import { formatSolePropStackDate, getAllSolePropStackPosts } from "@/lib/sole-prop-stack";
 
-const GRADIENT_COVER =
-  "linear-gradient(135deg, rgba(168,51,42,0.06), rgba(168,51,42,0.12))";
+// Warm tan surface for homepage cards (Writing thumbnails plus the project
+// cards). Sits in the brand's cream-and-brick-red palette, a touch darker than
+// the page for subtle definition.
+const CARD_TINT = "#ede4d6";
 
 const WRITING_ICONS = [CreditCard, TrendingUp, Compass];
 
@@ -99,7 +101,7 @@ export default function Home() {
                   >
                     <div
                       className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
-                      style={{ backgroundImage: GRADIENT_COVER }}
+                      style={{ backgroundColor: CARD_TINT }}
                     >
                       <Icon className="h-10 w-10" stroke="#a8332a" strokeWidth={1.5} aria-hidden />
                     </div>
@@ -117,7 +119,7 @@ export default function Home() {
                   <article key={`coming-soon-${index}`} className="flex flex-col">
                     <div
                       className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
-                      style={{ backgroundImage: GRADIENT_COVER }}
+                      style={{ backgroundColor: CARD_TINT }}
                     >
                       <Icon className="h-10 w-10" stroke="#a8332a" strokeWidth={1.5} aria-hidden />
                     </div>
@@ -155,7 +157,7 @@ export default function Home() {
               <Link
                 href="/build-log/maple-cairn-in-two-days"
                 className="block rounded-xl p-6 transition-shadow hover:shadow-sm"
-                style={{ backgroundImage: GRADIENT_COVER, border: `0.5px solid ${BORDER_MEDIUM}` }}
+                style={{ backgroundColor: CARD_TINT, border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
                   <span
@@ -186,7 +188,7 @@ export default function Home() {
               </Link>
               <article
                 className="rounded-xl p-6"
-                style={{ backgroundImage: GRADIENT_COVER, border: `0.5px solid ${BORDER_MEDIUM}` }}
+                style={{ backgroundColor: CARD_TINT, border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
                   <span
@@ -217,7 +219,7 @@ export default function Home() {
               </article>
               <article
                 className="rounded-xl p-6"
-                style={{ backgroundImage: GRADIENT_COVER, border: `0.5px solid ${BORDER_MEDIUM}` }}
+                style={{ backgroundColor: CARD_TINT, border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
                   <span
