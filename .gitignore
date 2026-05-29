@@ -47,3 +47,7 @@ AGENTS.md
 
 # WSL/NTFS artifacts from copying files in from Windows
 *:Zone.Identifier
+
+# Local screenshots and Playwright MCP scratch output (snapshots, console logs)
+/screenshots/
+/.playwright-mcp/
