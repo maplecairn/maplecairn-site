@@ -5,11 +5,17 @@ import { MapleTrustIcon } from "@/components/cairn-icons";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { BORDER_MEDIUM, BORDER_SUBTLE, NEWSLETTER_FORM_URL } from "@/lib/constants";
+import { formatSolePropStackDate, getAllSolePropStackPosts } from "@/lib/sole-prop-stack";
 
 const GRADIENT_COVER =
   "linear-gradient(135deg, rgba(168,51,42,0.06), rgba(168,51,42,0.12))";
 
+const WRITING_ICONS = [CreditCard, TrendingUp, Compass];
+
 export default function Home() {
+  const writingPosts = getAllSolePropStackPosts();
+  const placeholderCount = Math.max(0, 3 - writingPosts.length);
+
   return (
     <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
@@ -83,70 +89,48 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-              <Link
-                href="/sole-prop-stack/canadian-credit-card-stack"
-                className="flex flex-col transition-opacity hover:opacity-90"
-              >
-                <div
-                  className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
-                  style={{ backgroundImage: GRADIENT_COVER }}
-                >
-                  <CreditCard
-                    className="h-10 w-10"
-                    stroke="#a8332a"
-                    strokeWidth={1.5}
-                    aria-hidden
-                  />
-                </div>
-                <p className="text-xs text-[#8a8275]">May 21, 2026</p>
-                <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
-                  My Canadian credit card stack as a sole prop
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
-                  The four cards I actually use, the welcome offers I&apos;m running, and the spend
-                  categories that earn the most when you&apos;re self-employed in Canada.
-                </p>
-              </Link>
-              <article className="flex flex-col">
-                <div
-                  className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
-                  style={{ backgroundImage: GRADIENT_COVER }}
-                >
-                  <TrendingUp
-                    className="h-10 w-10"
-                    stroke="#a8332a"
-                    strokeWidth={1.5}
-                    aria-hidden
-                  />
-                </div>
-                <p className="text-xs text-[#8a8275]">May 6, 2026 · 12 min read</p>
-                <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
-                  The GST/HST quick method, explained without jargon
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
-                  How a five-minute election can save sole props thousands. With a real numerical example.
-                </p>
-              </article>
-              <article className="flex flex-col">
-                <div
-                  className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
-                  style={{ backgroundImage: GRADIENT_COVER }}
-                >
-                  <Compass
-                    className="h-10 w-10"
-                    stroke="#a8332a"
-                    strokeWidth={1.5}
-                    aria-hidden
-                  />
-                </div>
-                <p className="text-xs text-[#8a8275]">April 28, 2026 · 6 min read</p>
-                <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
-                  RRSP vs FHSA for the self-employed in 2026
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
-                  When the math actually flips. A simple framework for the decision most sole props get wrong.
-                </p>
-              </article>
+              {writingPosts.map((post, index) => {
+                const Icon = WRITING_ICONS[index % WRITING_ICONS.length];
+                return (
+                  <Link
+                    key={post.slug}
+                    href={`/sole-prop-stack/${post.slug}`}
+                    className="flex flex-col transition-opacity hover:opacity-90"
+                  >
+                    <div
+                      className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
+                      style={{ backgroundImage: GRADIENT_COVER }}
+                    >
+                      <Icon className="h-10 w-10" stroke="#a8332a" strokeWidth={1.5} aria-hidden />
+                    </div>
+                    <p className="text-xs text-[#8a8275]">{formatSolePropStackDate(post.date)}</p>
+                    <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">{post.description}</p>
+                  </Link>
+                );
+              })}
+              {Array.from({ length: placeholderCount }).map((_, index) => {
+                const Icon = WRITING_ICONS[(writingPosts.length + index) % WRITING_ICONS.length];
+                return (
+                  <article key={`coming-soon-${index}`} className="flex flex-col">
+                    <div
+                      className="mb-4 flex h-[140px] items-center justify-center rounded-lg"
+                      style={{ backgroundImage: GRADIENT_COVER }}
+                    >
+                      <Icon className="h-10 w-10" stroke="#a8332a" strokeWidth={1.5} aria-hidden />
+                    </div>
+                    <p className="text-xs text-[#8a8275]">Coming soon</p>
+                    <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
+                      More articles on the way
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
+                      New Sole Prop Stack posts are in the works.
+                    </p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -170,8 +154,8 @@ export default function Home() {
             <div className="grid gap-5 md:grid-cols-2">
               <Link
                 href="/build-log/maple-cairn-in-two-days"
-                className="block rounded-xl bg-white p-6 transition-shadow hover:shadow-sm"
-                style={{ border: `0.5px solid ${BORDER_MEDIUM}` }}
+                className="block rounded-xl p-6 transition-shadow hover:shadow-sm"
+                style={{ backgroundImage: GRADIENT_COVER, border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
                   <span
@@ -201,8 +185,8 @@ export default function Home() {
                 </div>
               </Link>
               <article
-                className="rounded-xl bg-white p-6"
-                style={{ border: `0.5px solid ${BORDER_MEDIUM}` }}
+                className="rounded-xl p-6"
+                style={{ backgroundImage: GRADIENT_COVER, border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
                   <span
@@ -232,8 +216,8 @@ export default function Home() {
                 </div>
               </article>
               <article
-                className="rounded-xl bg-white p-6"
-                style={{ border: `0.5px solid ${BORDER_MEDIUM}` }}
+                className="rounded-xl p-6"
+                style={{ backgroundImage: GRADIENT_COVER, border: `0.5px solid ${BORDER_MEDIUM}` }}
               >
                 <div className="mb-3.5 flex items-start justify-between gap-3">
                   <span
