@@ -1,41 +1,10 @@
 import { Compass, CreditCard, TrendingUp } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { MapleTrustIcon } from "@/components/cairn-icons";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { BORDER_MEDIUM, BORDER_SUBTLE } from "@/lib/constants";
-
-function HeroCairnIllustration({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="260"
-      height="320"
-      viewBox="0 0 260 320"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <ellipse cx="130" cy="295" rx="100" ry="8" fill="rgba(0,0,0,0.06)" />
-      <ellipse cx="130" cy="260" rx="95" ry="22" fill="#8a7b66" />
-      <ellipse cx="130" cy="252" rx="95" ry="20" fill="#a09078" />
-      <ellipse cx="135" cy="210" rx="72" ry="18" fill="#9b8c75" />
-      <ellipse cx="135" cy="202" rx="72" ry="16" fill="#b5a68d" />
-      <ellipse cx="125" cy="160" rx="55" ry="15" fill="#a89980" />
-      <ellipse cx="125" cy="152" rx="55" ry="13" fill="#c1b399" />
-      <ellipse cx="132" cy="115" rx="40" ry="12" fill="#b8aa90" />
-      <ellipse cx="132" cy="108" rx="40" ry="10" fill="#d0c2a8" />
-      <ellipse cx="128" cy="80" rx="26" ry="9" fill="#c4b69d" />
-      <ellipse cx="128" cy="74" rx="26" ry="7.5" fill="#dccbb0" />
-      <g transform="translate(128, 50)">
-        <path
-          d="M 0,-22 L 3,-12 L 12,-14 L 8,-6 L 16,-3 L 9,2 L 14,11 L 4,8 L 2,17 L 0,11 L -2,17 L -4,8 L -14,11 L -9,2 L -16,-3 L -8,-6 L -12,-14 L -3,-12 Z"
-          fill="#a8332a"
-        />
-        <line x1="0" y1="17" x2="0" y2="22" stroke="#a8332a" strokeWidth="1.5" />
-      </g>
-    </svg>
-  );
-}
+import { BORDER_MEDIUM, BORDER_SUBTLE, NEWSLETTER_FORM_URL } from "@/lib/constants";
 
 const GRADIENT_COVER =
   "linear-gradient(135deg, rgba(168,51,42,0.06), rgba(168,51,42,0.12))";
@@ -62,32 +31,31 @@ export default function Home() {
                 Weekly. No fluff.
               </p>
               <div id="subscribe" className="mb-3 max-w-md scroll-mt-28">
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <label htmlFor="hero-email" className="sr-only">
-                    Email address
-                  </label>
-                  <input
-                    id="hero-email"
-                    type="email"
-                    name="email"
-                    placeholder="you@example.ca"
-                    autoComplete="email"
-                    className="min-h-12 flex-1 rounded-md border border-[#d4cdbf] bg-white px-4 py-3 text-[#1a1a1a] placeholder:text-[#8a8275] outline-none focus:border-[#a8332a] focus:ring-1 focus:ring-[#a8332a]/30"
-                  />
-                  <button
-                    type="button"
-                    className="min-h-12 shrink-0 rounded-md bg-[#a8332a] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#8e2b24]"
-                  >
-                    Subscribe free
-                  </button>
-                </div>
+                <p className="mb-3 text-sm font-medium text-[#1a1a1a]">
+                  Newsletter coming soon.
+                </p>
+                <a
+                  href={NEWSLETTER_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#a8332a] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#8e2b24]"
+                >
+                  Get notified
+                </a>
               </div>
               <p className="text-xs text-[#8a8275]">
-                Free forever. Unsubscribe anytime. No spam.
+                I&apos;ll email you when the newsletter launches. No spam.
               </p>
             </div>
             <div className="flex min-h-[280px] items-center justify-center lg:min-h-[360px]">
-              <HeroCairnIllustration className="h-auto w-full max-w-[200px] md:max-w-[260px]" />
+              <Image
+                src="/images/logo/cairn.png"
+                alt="Maple Cairn logo: a stacked cairn in brick red"
+                width={557}
+                height={605}
+                priority
+                className="h-auto w-full max-w-[200px] md:max-w-[260px]"
+              />
             </div>
           </div>
         </section>
