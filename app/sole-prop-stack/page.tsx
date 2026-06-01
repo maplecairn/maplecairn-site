@@ -17,7 +17,7 @@ export default function SolePropStackIndexPage() {
   return (
     <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="px-10 py-16">
+      <main className="px-10 py-12">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm text-[#5a544a]">
             <Link href="/" className="font-medium text-[#a8332a] hover:underline">

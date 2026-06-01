@@ -1,6 +1,6 @@
 ---
 title: "How to build a Canadian PF blog from zero to live domain (the step-by-step)"
-description: "The actual commands, configs, and decisions behind building Maple Cairn — the tactical companion to Entry 01."
+description: "The actual commands, configs, and decisions behind building Maple Cairn. The tactical companion to Entry 01."
 date: "2026-05-22"
 slug: "step-by-step-walkthrough"
 entry_number: "02"
@@ -20,7 +20,7 @@ What you'll have at the end: a real website on a real custom domain, mobile-resp
 
 Total time: realistically two long days. Less if you've done some of this before. Could stretch to a week if you fuss over design like I did.
 
-One thing to know upfront. The hard part of this isn't the technical steps. The technical steps are well-documented and AI tools handle most of them. The hard part is scope discipline, picking a small enough v1, and shipping something you're slightly embarrassed by. I'll come back to that at the end.
+One thing to know upfront. The hard part isn't the technical steps. Those are well-documented, and AI handles most of them. The hard part is scope discipline: picking a small enough v1, shipping something you're slightly embarrassed by. I'll come back to that at the end.
 
 ## 1. Lock the brand before writing any code
 
@@ -46,7 +46,7 @@ Don't skip the .com purchase even if you're going .ca-first. $13 to lock the .co
 
 ## 2. Set up your dev environment safely
 
-Quick note for Mac and Linux users: you can skip the WSL2 install steps below — your operating system already runs Unix natively. But the security argument still applies. npm packages running on your machine can access files in your home directory. If you have tax documents, crypto keys, or other sensitive files mixed with your dev environment, consider running risky installs in Docker containers, or use a separate user account for dev. The rest of this section is Windows-specific install instructions.
+Quick note for Mac and Linux users: you can skip the WSL2 install steps below. Your operating system already runs Unix natively. But the security argument still applies. npm packages running on your machine can access files in your home directory. If you have tax documents, crypto keys, or other sensitive files mixed with your dev environment, consider running risky installs in Docker containers, or use a separate user account for dev. The rest of this section is Windows-specific install instructions.
 
 This is the most important section of this whole post. If you're on Windows and your laptop also has your tax documents, banking sessions, or any financially sensitive files, **do not install Node directly on Windows**. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) and do all dev work inside it.
 
@@ -129,7 +129,7 @@ npm run dev
 Open `http://localhost:3000` in your browser. You should see Next.js's welcome page.
 
 > **What's localhost?**
-> A web address that points to your own computer. When you run `npm run dev`, Next.js starts a tiny web server on your laptop. `http://localhost:3000` lets you visit it in your browser to test changes. Nobody else on the internet can see this — it's just for you to test before pushing live. The `3000` is the port number; you can have multiple local servers running on different ports.
+> A web address that points to your own computer. When you run `npm run dev`, Next.js starts a tiny web server on your laptop. `http://localhost:3000` lets you visit it in your browser to test changes. Nobody else on the internet can see this. It's just for you, to test before pushing live. The `3000` is the port number; you can have multiple local servers running on different ports.
 
 Stop the dev server with Ctrl+C when you're done admiring it.
 
@@ -147,7 +147,7 @@ In GitHub, create a new repository. Name it something descriptive like `yourproj
 
 I went public for build-in-public credibility. You can change your mind later.
 
-Don't initialize the GitHub repo with a README — your local project already has one. Just click "Create repository" and copy the SSH URL it gives you (looks like `git@github.com:yourname/yourproject.git`).
+Don't initialize the GitHub repo with a README. Your local project already has one. Just click "Create repository" and copy the SSH URL it gives you (looks like `git@github.com:yourname/yourproject.git`).
 
 > **What does git actually do?**
 > Git is version control. It tracks every change you make to your code over time, so you can roll back if something breaks, see what you changed yesterday, or collaborate with other people without overwriting each other. GitHub is a website that hosts your git repositories (called "repos") online. Local git on your laptop, remote git on GitHub, the two stay in sync via push and pull commands.
@@ -211,7 +211,7 @@ DNS propagation takes anywhere from 5 minutes to 2 hours. Most of the time it's 
 When DNS propagation completes, your custom domain shows the Next.js welcome page. You now have a real website on a real domain with HTTPS, CDN, and auto-deploy.
 
 > **What's HTTPS and CDN?**
-> HTTPS is the encrypted version of HTTP — the little padlock in your browser's address bar. Vercel sets this up automatically for any domain you connect, including custom domains. CDN stands for Content Delivery Network — copies of your site stored on servers around the world, so visitors in Tokyo get it from a Tokyo server (fast) instead of from Vercel's headquarters (slow). Free with Vercel.
+> HTTPS is the encrypted version of HTTP, the little padlock in your browser's address bar. Vercel sets it up automatically for any domain you connect. CDN stands for Content Delivery Network: copies of your site on servers around the world, so a visitor in Tokyo loads it from a nearby server instead of a distant one. Free with Vercel.
 
 End-to-end cost so far: $31 for the domains. End-to-end time: 60-90 minutes if everything goes smoothly.
 
@@ -258,9 +258,9 @@ Vercel auto-deploys in under a minute. Refresh your domain. You now have a custo
 Hand-coding each blog post as a separate Next.js page gets miserable fast. Set up MDX infrastructure once, then every future post is a five-minute file creation rather than an hour of code.
 
 > **What's MDX?**
-> Markdown + JSX. Markdown is the simple text formatting you see on GitHub READMEs and Reddit (`# Heading`, `**bold**`, `[link](url)`). JSX is React's syntax for writing components. MDX combines them — you write a blog post mostly in plain Markdown (fast, readable) but can drop in interactive React components when you need to. For text-heavy blogs, plain Markdown is plenty.
+> Markdown + JSX. Markdown is the simple text formatting you see on GitHub READMEs and Reddit (`# Heading`, `**bold**`, `[link](url)`). JSX is React's syntax for writing components. MDX combines them: you write a blog post mostly in plain Markdown (fast, readable) but can drop in interactive React components when you need to. For text-heavy blogs, plain Markdown is plenty.
 
-A quick note on the stack choice. There's a "true MDX" approach using `@next/mdx` and a simpler approach using `gray-matter` + `react-markdown` + `remark-gfm`. The simpler approach can't embed React components inside posts, but for text-heavy blogs it's plenty. Cursor picked the simpler approach when I asked it to set up blog infrastructure, and I've had zero regrets. Saves complexity. Can migrate later if needed.
+A quick note on the stack choice. There's a "true MDX" approach using `@next/mdx` and a simpler approach using `gray-matter` + `react-markdown` + `remark-gfm`. The simpler approach can't embed React components inside posts, but for text-heavy blogs it's plenty. Cursor picked it when I set up the blog infrastructure, and I've had zero regrets. Saves complexity, and I can migrate later if needed.
 
 In Cursor's AI chat, paste:
 
@@ -285,7 +285,7 @@ slug: "..."
 ```
 
 > **What's frontmatter?**
-> The block of metadata at the top of an MDX file, wrapped in three dashes. It's where you put the post's title, description, date, and any other info the site needs to render the post and list it in indexes. Not visible to readers — it's just for the system. Standard pattern in static site generators.
+> The block of metadata at the top of an MDX file, wrapped in three dashes. It's where you put the post's title, description, date, and any other info the site needs to render the post and list it in indexes. Not visible to readers. It's just for the system. Standard pattern in static site generators.
 
 Cursor scaffolds the whole thing in 3-5 minutes. Once it's done, a blog post becomes a single MDX file like this:
 
@@ -346,6 +346,6 @@ If I started over knowing what I know now:
 
 The mechanics of getting a site live are easier than they've ever been. What's hard is the discipline to actually finish, picking a small enough scope, and shipping something you're slightly embarrassed by. The unshipped perfect version doesn't exist. The shipped rough one does.
 
-The next post is a Sole Prop Stack entry: my current Canadian credit card stack, what I actually use, and the hacks that move the needle. If that sounds useful, the most helpful thing right now is to share this post with one person who might find it useful.
+The next post is a Sole Prop Stack entry, now live: [my Canadian credit card stack](/sole-prop-stack/canadian-credit-card-stack), what I actually use and the hacks that move the needle. If that sounds useful, share this post with one person who'd want it.
 
 — Michael K

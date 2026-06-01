@@ -40,7 +40,7 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
   return (
     <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="border-b px-10 py-16" style={{ borderColor: BORDER_SUBTLE }}>
+      <main className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
         <article className="mx-auto max-w-2xl">
           <Link
             href="/build-log"
@@ -57,8 +57,8 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
           <p className="mt-4 text-sm text-[#5a544a]">
             {formatBuildLogDate(post.date)} · {post.readMinutes} min read
           </p>
-          <p className="mt-6 text-lg leading-relaxed text-[#5a544a]">{post.description}</p>
-          <div className="mt-12">
+          <p className="mt-6 font-serif text-lg leading-relaxed text-[#5a544a]">{post.description}</p>
+          <div className="mt-8">
             <MarkdownContent content={post.content} />
           </div>
         </article>

@@ -29,7 +29,7 @@ export function SiteFooter() {
           <span className="text-[#8a8275]" aria-hidden>
             /
           </span>
-          <Link href="/" className="hover:text-[#a8332a]">
+          <Link href="/affiliate-disclosure" className="hover:text-[#a8332a]">
             Affiliate Disclosure
           </Link>
           <span className="text-[#8a8275]" aria-hidden>

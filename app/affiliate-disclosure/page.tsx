@@ -31,7 +31,7 @@ If a product I write about is not an affiliate relationship, I'll say so explici
 | [Wealthsimple](https://www.wealthsimple.com/invite/MZEDLB) | Direct referral | $25 cash bonus when you fund any Wealthsimple account | $25 referral credit |
 | [Amex Cobalt via GCR](https://www.greatcanadianrebates.ca/register.php?r=292741&p=Amex-Cobalt) | GCR-mediated | $40 GCR cash back rebate on card approval, plus the Amex welcome offer | GCR referral commission |
 | [Scotia Momentum Visa Infinite+ via GCR](https://www.greatcanadianrebates.ca/register.php?r=292741&p=Scotia-Momentum-Infinite) | GCR-mediated | $100 GCR cash back rebate on card approval, plus the Scotia welcome offer | GCR referral commission |
-| [Great Canadian Rebates](https://www.greatcanadianrebates.ca/?refer-a-friend=292741) | Direct referral | Standard GCR account, no special bonus | Small referral commission for the sign-up |
+| [Great Canadian Rebates](https://www.greatcanadianrebates.ca/register/292741/) | Direct referral | Standard GCR account, no special bonus | Small referral commission for the sign-up |
 | [Claude (Anthropic)](https://claude.ai/referral/mPo9S2mSLA) | Direct referral | 1-week free trial of Claude Pro | Referral credit on my Claude account |
 
 This list grows as I add new affiliates. The current set covers the products I've actually written about. If I add an affiliate relationship for a product I haven't written about yet, it will show up here before any post links to it.
@@ -45,6 +45,7 @@ To actually receive your GCR rebate, you have to:
 - Apply directly through the GCR link without browsing to other pages mid-application
 - Save the reference number the issuer provides at application
 - Be a first-time applicant for that specific card
+- Skip any outside promo code during the application, which voids the rebate
 - Follow up with GCR within 3 months if the rebate hasn't posted
 
 GCR publishes their full terms on each card's product page. The rebate amounts listed above are current as of writing and may change.
@@ -61,14 +62,14 @@ The Tools section of the homepage lists Cursor, Claude, Vercel, and Beehiiv. The
 
 ## Contact
 
-If you have questions about any of this or notice something you think is misleading, the contact page is the way to reach me.
+If you have questions about any of this, or you notice something you think is misleading, email me at [maplecairn@gmail.com](mailto:maplecairn@gmail.com).
 `;
 
 export default function AffiliateDisclosurePage() {
   return (
     <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="border-b px-10 py-16" style={{ borderColor: BORDER_SUBTLE }}>
+      <main className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
         <article className="mx-auto max-w-2xl">
           <Link
             href="/"
@@ -79,12 +80,12 @@ export default function AffiliateDisclosurePage() {
           <h1 className="mt-8 font-serif text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
             Affiliate Disclosure
           </h1>
-          <p className="mt-4 text-sm text-[#5a544a]">Last updated: May 28, 2026</p>
-          <p className="mt-6 text-lg leading-relaxed text-[#5a544a]">
+          <p className="mt-4 text-sm text-[#5a544a]">Last updated: June 1, 2026</p>
+          <p className="mt-6 font-serif text-lg leading-relaxed text-[#5a544a]">
             How affiliate marketing works on Maple Cairn, who I&apos;m partnered with, and
             what each side gets out of it.
           </p>
-          <div className="mt-12">
+          <div className="mt-8">
             <MarkdownContent content={content} />
           </div>
         </article>

@@ -23,7 +23,7 @@ export default function Home() {
       <SiteHeader />
 
       <main>
-        <section className="border-b px-10 py-16" style={{ borderColor: BORDER_SUBTLE }}>
+        <section className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="min-w-0">
               <p className="mb-7 inline-flex items-center gap-2 rounded-full bg-[rgba(168,51,42,0.08)] px-3.5 py-1.5 text-xs font-medium text-[#7a2a23]">
@@ -70,7 +70,7 @@ export default function Home() {
 
         <section
           id="writing"
-          className="scroll-mt-24 border-t bg-white px-10 py-[4.5rem]"
+          className="scroll-mt-24 border-t bg-white px-10 py-14"
           style={{ borderColor: BORDER_SUBTLE }}
         >
           <div className="mx-auto max-w-6xl">
@@ -139,7 +139,7 @@ export default function Home() {
 
         <section
           id="build-log"
-          className="scroll-mt-24 border-t px-10 py-[4.5rem]"
+          className="scroll-mt-24 border-t px-10 py-14"
           style={{ borderColor: BORDER_SUBTLE, backgroundColor: "#faf7f2" }}
         >
           <div className="mx-auto max-w-6xl">
@@ -262,7 +262,7 @@ export default function Home() {
                   Subscribe to see what I build next.
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
-                  Newsletter readers get build logs first — including the wins, fails, and the actual
+                  Newsletter readers get build logs first, including the wins, fails, and the actual
                   numbers.
                 </p>
                 <a href="#subscribe" className="mt-4 text-sm font-medium text-[#a8332a] hover:underline">
@@ -275,7 +275,7 @@ export default function Home() {
 
         <section
           id="tools"
-          className="scroll-mt-24 border-t bg-white px-10 py-[4.5rem]"
+          className="scroll-mt-24 border-t bg-white px-10 py-14"
           style={{ borderColor: BORDER_SUBTLE }}
         >
           <div className="mx-auto max-w-6xl">
@@ -285,7 +285,7 @@ export default function Home() {
                 The stack I&apos;m building with
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#5a544a]">
-                Affiliate-supported. I only list what I actively use and would pay for.{" "}
+                I only list tools I actively use and would pay for. Just the Claude link is affiliate.{" "}
                 <a href="/affiliate-disclosure" className="font-medium text-[#a8332a] underline">
                   Full disclosure →
                 </a>

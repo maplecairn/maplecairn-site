@@ -12,11 +12,11 @@ This is the build log entry for project zero: the site you're reading this on.
 
 It's not a polished case study. It's a snapshot of what "vibe coding" actually looks like when you're six years into financial services (insurance, management consulting, fintech) and zero days into building software. The wins, the small humiliations, and the moments that mattered.
 
-*Heads up: this is the narrative version. The actual step-by-step walkthrough — every command, every config — is coming as a separate post this week.*
+*Heads up: this is the narrative version. The actual step-by-step walkthrough, every command and every config, is coming as a separate post this week.*
 
 ## Why I'm doing this at all
 
-I'm on sabbatical, and rather than spend it on a beach, I wanted to spend it learning what it feels like to build things instead of strategize about them. My background has been semi-technical. Close enough to engineering to know what good looks like, never the person actually writing the code. The tooling is good enough now that anyone willing to dabble for a few hours can either get noticeably more productive at their day job or build something on the side that compounds.
+I'm on sabbatical. Rather than spend it on a beach, I wanted to learn what it feels like to build things instead of strategize about them. My background has been semi-technical. Close enough to engineering to know what good looks like, never the person actually writing the code. The tooling is good enough now that anyone willing to dabble for a few hours can either get noticeably more productive at their day job or build something on the side that compounds.
 
 That's what got me excited. I wanted to explore operating as a solo founder. Running my own little business end-to-end, learning the parts I've outsourced or had organizational support for my whole career.
 
@@ -64,9 +64,9 @@ The actual building happened on Day 2. I scaffolded a Next.js project with one c
 
 Net result: a live site with a hero, two content pillars, a build log section, an affiliate tools section, and a footer. Mobile-responsive. HTTPS. Global CDN.
 
-The mechanics part — getting a site live — was easier than expected. The design and copy iteration was the slow part.
+The mechanics, getting a site live, were easier than expected. The design and copy iteration was the slow part.
 
-One habit I leaned into: I asked Claude to explain every command I ran, in plain English, before running it. `mkdir -p`. `git push origin main`. `npm install -g vercel`. Every CNAME record. Every SSH key step. I'm not trying to become a developer overnight. But I do want enough syntax literacy to debug confidently when something breaks six months from now.
+One habit I leaned into: I asked Claude to explain every command before I ran it. `mkdir -p`. `git push origin main`. `npm install -g vercel`. Every CNAME record. Every SSH key step. I'm not trying to become a developer overnight. But I do want enough syntax literacy to debug confidently when something breaks six months from now.
 
 *Want the actual step-by-step? Every command, every prompt, every setting? Coming this week as a separate walkthrough.*
 
@@ -90,7 +90,7 @@ If you're working on a laptop that also holds sensitive personal stuff, I'd do t
 
 The tradeoff: slower v1, but I now understand what every part of my site is doing.
 
-This is the thing I underestimated. When you actually understand the underlying tools, you can start building beyond what the off-the-shelf Lego blocks were designed for. The sum of the parts ends up greater than the whole. There's more API and data available out there than any one person can consume. The interesting work is making sense of it, combining it in ways that solve real pain points (mine first, then customers). That's what I'm actually excited to get to. For pure landing pages, Lovable wins. For anything you want to grow into something weirder, the semi-from-scratch route earns its time back.
+This is the thing I underestimated. When you actually understand the underlying tools, you can build beyond what the off-the-shelf blocks were designed for. There's more data and API out there than any one person can use, and the interesting work is combining it in ways that solve real pain points. Mine first, then other people's. That's what I'm actually excited to get to. For a pure landing page, Lovable wins. For anything you want to grow into something weirder, semi-from-scratch earns its time back.
 
 **The vibe coding hype is real, just not for the reasons people think.** AI doesn't write better code than experienced developers. What it does is collapse the "I don't know how to start" barrier. It's like having a senior developer sitting next to me, patiently answering every silly question. Without judgment, without billing me hourly, without me having to find a developer friend.
 
@@ -113,7 +113,7 @@ Newsletter coming soon. For now, the most helpful thing is to share this post if
 
 ## The takeaway
 
-If you're considering building something — a site, a tool, a small business — the gap between thinking about it and shipping it is much smaller in 2026 than it was even six months ago. The friction has collapsed.
+If you're considering building something, a site, a tool, a small business, the gap between thinking about it and shipping it is much smaller in 2026 than it was even six months ago. The friction has collapsed.
 
 What hasn't collapsed is the discipline to actually finish. Picking a small enough scope. Resisting the perfectionism that turns a 2-day project into a 6-month project. Hitting publish on a v1 you're slightly embarrassed by.
 

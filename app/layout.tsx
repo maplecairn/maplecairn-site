@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Maple Cairn — Canadian personal finance + build log",
+    default: "Maple Cairn · Canadian personal finance + build log",
     template: "%s · Maple Cairn",
   },
   description:

@@ -17,7 +17,7 @@ export default function BuildLogIndexPage() {
   return (
     <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="px-10 py-16">
+      <main className="px-10 py-12">
         <div className="mx-auto max-w-3xl">
           <p className="text-xs font-medium uppercase tracking-widest text-[#a8332a]">Build log</p>
           <h1 className="mt-2 font-serif text-4xl font-medium tracking-tight text-[#1a1a1a] sm:text-5xl">
