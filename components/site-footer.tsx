@@ -17,14 +17,8 @@ export function SiteFooter() {
           className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#5a544a]"
           aria-label="Footer"
         >
-          <Link href="/" className="mc-focus hover:text-[#a8332a]">
+          <Link href="/about" className="mc-focus hover:text-[#a8332a]">
             About
-          </Link>
-          <span className="text-[#8a8275]" aria-hidden>
-            /
-          </span>
-          <Link href="/" className="mc-focus hover:text-[#a8332a]">
-            Now
           </Link>
           <span className="text-[#8a8275]" aria-hidden>
             /
@@ -35,9 +29,9 @@ export function SiteFooter() {
           <span className="text-[#8a8275]" aria-hidden>
             /
           </span>
-          <Link href="/" className="mc-focus hover:text-[#a8332a]">
+          <a href="/feed.xml" className="mc-focus hover:text-[#a8332a]">
             RSS
-          </Link>
+          </a>
         </nav>
         <p className="text-xs text-[#8a8275] lg:text-right">© 2026 · Built in Toronto, Canada</p>
       </div>

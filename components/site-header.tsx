@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: "/build-log", label: "Build Log" },
   { href: "/sole-prop-stack", label: "Sole Prop Stack" },
   { href: "/#tools", label: "Tools" },
-  { href: "/", label: "About" },
+  { href: "/about", label: "About" },
 ];
 
 export function SiteHeader() {

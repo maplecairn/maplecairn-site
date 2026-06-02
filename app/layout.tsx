@@ -35,12 +35,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://maplecairn.ca"),
   title: {
     default: "Maple Cairn · Canadian personal finance + build log",
     template: "%s · Maple Cairn",
   },
   description:
     "Canadian personal finance for self-employed builders: cards, taxes, and AI-powered micro products. Weekly writing and build logs from Toronto.",
+  openGraph: {
+    type: "website",
+    siteName: "Maple Cairn",
+    locale: "en_CA",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 export default function RootLayout({
