@@ -51,7 +51,7 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
           <p className="mt-8 text-xs font-medium uppercase tracking-widest text-[#a8332a]">
             Build log · Entry {post.entry_number}
           </p>
-          <h1 className="mt-3 font-serif text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
+          <h1 className="mt-3 font-head text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
             {post.title}
           </h1>
           <p className="mt-4 text-sm text-[#5a544a]">

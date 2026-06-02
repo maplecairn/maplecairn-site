@@ -27,7 +27,7 @@ export default function SolePropStackIndexPage() {
           <p className="mt-10 text-xs font-medium uppercase tracking-widest text-[#a8332a]">
             Sole prop stack
           </p>
-          <h1 className="mt-2 font-serif text-4xl font-medium tracking-tight text-[#1a1a1a] sm:text-5xl">
+          <h1 className="mt-2 font-head text-4xl font-medium tracking-tight text-[#1a1a1a] sm:text-5xl">
             Sole Prop Stack
           </h1>
           <p className="mt-4 text-base leading-relaxed text-[#5a544a]">
@@ -52,7 +52,7 @@ export default function SolePropStackIndexPage() {
                       {formatSolePropStackDate(post.date)} · {post.readMinutes} min read
                     </span>
                   </div>
-                  <h2 className="font-serif text-xl font-medium text-[#1a1a1a]">{post.title}</h2>
+                  <h2 className="font-head text-xl font-medium text-[#1a1a1a]">{post.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">{post.description}</p>
                   <p className="mt-4 text-sm font-medium text-[#a8332a]">Read post →</p>
                 </Link>

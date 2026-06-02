@@ -11,7 +11,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <CairnNavIcon className="shrink-0" width={22} height={26} />
-          <span className="font-serif text-base font-medium">Maple Cairn</span>
+          <span className="font-head text-base font-medium">Maple Cairn</span>
         </Link>
         <nav
           className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#5a544a]"

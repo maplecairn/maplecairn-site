@@ -64,7 +64,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center gap-3">
           <CairnNavIcon className="shrink-0" />
-          <span className="font-serif text-lg font-medium tracking-tight sm:text-xl">
+          <span className="font-head text-lg font-medium tracking-tight sm:text-xl">
             Maple Cairn
           </span>
         </Link>

@@ -77,7 +77,7 @@ export default function AffiliateDisclosurePage() {
           >
             ← Back to home
           </Link>
-          <h1 className="mt-8 font-serif text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
+          <h1 className="mt-8 font-head text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
             Affiliate Disclosure
           </h1>
           <p className="mt-4 text-sm text-[#5a544a]">Last updated: June 1, 2026</p>

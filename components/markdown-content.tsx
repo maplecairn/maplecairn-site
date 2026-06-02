@@ -52,13 +52,13 @@ export function MarkdownContent({ content }: { content: string }) {
               aria-hidden
               className="mt-10 mb-3 block h-0.5 w-8 rounded-full bg-[#a8332a]"
             />
-            <h2 className="mb-4 font-serif text-2xl font-semibold tracking-tight text-[#1a1a1a] sm:text-3xl">
+            <h2 className="mb-4 font-head text-2xl font-semibold tracking-tight text-[#1a1a1a] sm:text-3xl">
               {children}
             </h2>
           </>
         ),
         h3: ({ children }) => (
-          <h3 className="mt-8 mb-2 font-serif text-lg font-semibold text-[#1a1a1a] sm:text-xl">
+          <h3 className="mt-8 mb-2 font-head text-lg font-semibold text-[#1a1a1a] sm:text-xl">
             {children}
           </h3>
         ),

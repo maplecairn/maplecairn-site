@@ -30,9 +30,9 @@ export default function Home() {
                 <MapleTrustIcon className="h-3.5 w-3.5 shrink-0" />
                 Made in Canada · Free weekly email
               </p>
-              <h1 className="font-serif text-5xl font-medium leading-none tracking-tight text-[#1a1a1a] sm:text-6xl">
+              <h1 className="font-head text-5xl font-medium leading-none tracking-tight text-[#1a1a1a] sm:text-6xl">
                 Canadian personal finance hacks from a{" "}
-                <em className="font-serif italic text-[#a8332a]">self-employed builder</em>.
+                <em className="font-head italic text-[#a8332a]">self-employed builder</em>.
               </h1>
               <p className="mb-8 mt-6 max-w-md text-base leading-relaxed text-[#5a544a]">
                 Practical money moves and the AI tools I&apos;m using to build small things on the side.
@@ -79,7 +79,7 @@ export default function Home() {
                 <p className="text-xs font-medium uppercase tracking-widest text-[#a8332a]">
                   Sole prop stack
                 </p>
-                <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight text-[#1a1a1a] sm:text-4xl">
+                <h2 className="mt-2 font-head text-3xl font-medium tracking-tight text-[#1a1a1a] sm:text-4xl">
                   Writing
                 </h2>
               </div>
@@ -106,7 +106,7 @@ export default function Home() {
                       <Icon className="h-10 w-10" stroke="#a8332a" strokeWidth={1.5} aria-hidden />
                     </div>
                     <p className="text-xs text-[#8a8275]">{formatSolePropStackDate(post.date)}</p>
-                    <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
+                    <h3 className="mt-2 font-head text-lg font-medium leading-snug text-[#1a1a1a]">
                       {post.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">{post.description}</p>
@@ -124,7 +124,7 @@ export default function Home() {
                       <Icon className="h-10 w-10" stroke="#a8332a" strokeWidth={1.5} aria-hidden />
                     </div>
                     <p className="text-xs text-[#8a8275]">Coming soon</p>
-                    <h3 className="mt-2 font-serif text-lg font-medium leading-snug text-[#1a1a1a]">
+                    <h3 className="mt-2 font-head text-lg font-medium leading-snug text-[#1a1a1a]">
                       More articles on the way
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
@@ -145,7 +145,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-9">
               <p className="text-xs font-medium uppercase tracking-widest text-[#a8332a]">Build log</p>
-              <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight text-[#1a1a1a] sm:text-4xl">
+              <h2 className="mt-2 font-head text-3xl font-medium tracking-tight text-[#1a1a1a] sm:text-4xl">
                 What I&apos;m shipping
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-[#5a544a]">
@@ -168,7 +168,7 @@ export default function Home() {
                   </span>
                   <span className="text-xs text-[#8a8275]">Project 01</span>
                 </div>
-                <h3 className="mb-2 font-serif text-xl font-medium text-[#1a1a1a]">
+                <h3 className="mb-2 font-head text-xl font-medium text-[#1a1a1a]">
                   Maple Cairn (this site)
                 </h3>
                 <p className="mb-4 text-sm leading-relaxed text-[#5a544a]">
@@ -199,7 +199,7 @@ export default function Home() {
                   </span>
                   <span className="text-xs text-[#8a8275]">Project 02</span>
                 </div>
-                <h3 className="mb-2 font-serif text-xl font-medium text-[#1a1a1a]">
+                <h3 className="mb-2 font-head text-xl font-medium text-[#1a1a1a]">
                   Sole Prop Tax Estimator
                 </h3>
                 <p className="mb-4 text-sm leading-relaxed text-[#5a544a]">
@@ -230,7 +230,7 @@ export default function Home() {
                   </span>
                   <span className="text-xs text-[#8a8275]">Project 03</span>
                 </div>
-                <h3 className="mb-2 font-serif text-xl font-medium text-[#1a1a1a]">
+                <h3 className="mb-2 font-head text-xl font-medium text-[#1a1a1a]">
                   Pokemon TCG drop alerts
                 </h3>
                 <p className="mb-4 text-sm leading-relaxed text-[#5a544a]">
@@ -258,7 +258,7 @@ export default function Home() {
                 <p className="text-xs font-medium uppercase tracking-widest text-[#a8332a]">
                   What&apos;s next?
                 </p>
-                <h3 className="mt-3 font-serif text-lg font-medium text-[#1a1a1a]">
+                <h3 className="mt-3 font-head text-lg font-medium text-[#1a1a1a]">
                   Subscribe to see what I build next.
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
@@ -281,7 +281,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-9">
               <p className="text-xs font-medium uppercase tracking-widest text-[#a8332a]">Tools I use</p>
-              <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight text-[#1a1a1a] sm:text-4xl">
+              <h2 className="mt-2 font-head text-3xl font-medium tracking-tight text-[#1a1a1a] sm:text-4xl">
                 The stack I&apos;m building with
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#5a544a]">
