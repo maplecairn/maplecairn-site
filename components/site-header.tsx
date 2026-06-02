@@ -62,7 +62,7 @@ export function SiteHeader() {
       style={{ borderColor: BORDER_SUBTLE }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-        <Link href="/" className="flex shrink-0 items-center gap-3">
+        <Link href="/" className="mc-focus flex shrink-0 items-center gap-3">
           <CairnNavIcon className="shrink-0" />
           <span className="font-head text-lg font-medium tracking-tight sm:text-xl">
             Maple Cairn
@@ -80,7 +80,7 @@ export function SiteHeader() {
                   key={link.label}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`border-b-2 pb-1 transition-colors hover:text-[#a8332a] ${
+                  className={`mc-focus border-b-2 pb-1 transition-colors hover:text-[#a8332a] ${
                     active ? "border-[#a8332a]" : "border-transparent"
                   }`}
                 >
@@ -93,7 +93,7 @@ export function SiteHeader() {
             href={NEWSLETTER_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-full bg-[#a8332a] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#8e2b24]"
+            className="mc-btn mc-focus-on-brick shrink-0 rounded-full bg-[#a8332a] px-5 py-2 text-sm font-medium text-white hover:bg-[#8e2b24]"
           >
             Subscribe
           </a>
@@ -103,7 +103,7 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-[#1a1a1a] transition-colors hover:bg-[rgba(168,51,42,0.08)] md:hidden"
+            className="mc-focus flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-[#1a1a1a] transition-colors hover:bg-[rgba(168,51,42,0.08)] md:hidden"
           >
             {menuOpen ? (
               <svg
@@ -153,7 +153,7 @@ export function SiteHeader() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
-                className={`rounded-md px-2 py-2.5 text-sm transition-colors hover:bg-[rgba(168,51,42,0.06)] ${
+                className={`mc-focus rounded-md px-2 py-2.5 text-sm transition-colors hover:bg-[rgba(168,51,42,0.06)] ${
                   active ? "font-medium text-[#a8332a]" : "text-[#5a544a]"
                 }`}
               >
@@ -166,7 +166,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-full bg-[#a8332a] px-5 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-[#8e2b24]"
+            className="mc-btn mc-focus-on-brick mt-2 rounded-full bg-[#a8332a] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#8e2b24]"
           >
             Subscribe
           </a>
