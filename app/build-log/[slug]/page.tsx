@@ -38,20 +38,20 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
+    <div className="mc-paper-grain min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
       <main className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
         <article className="mx-auto max-w-2xl">
           <Link
             href="/build-log"
-            className="text-sm font-medium text-[#a8332a] hover:underline"
+            className="mc-link mc-focus text-sm font-medium text-[#a8332a]"
           >
             ← Back to Build Log
           </Link>
           <p className="mt-8 text-xs font-medium uppercase tracking-widest text-[#a8332a]">
             Build log · Entry {post.entry_number}
           </p>
-          <h1 className="mt-3 font-head text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
+          <h1 className="mc-reveal mt-3 font-head text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
             {post.title}
           </h1>
           <p className="mt-4 text-sm text-[#5a544a]">
@@ -65,11 +65,11 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
       </main>
       <section className="px-10 py-10">
         <div className="mx-auto flex max-w-2xl flex-col gap-4 text-sm text-[#5a544a] sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/build-log" className="font-medium text-[#a8332a] hover:underline">
+          <Link href="/build-log" className="mc-link mc-focus font-medium text-[#a8332a]">
             ← All build log entries
           </Link>
-          <Link href="/#subscribe" className="font-medium text-[#a8332a] hover:underline">
-            Subscribe for the next entry →
+          <Link href="/#subscribe" className="mc-link mc-focus font-medium text-[#a8332a]">
+            Subscribe for the next entry <span className="mc-arrow" aria-hidden>→</span>
           </Link>
         </div>
       </section>

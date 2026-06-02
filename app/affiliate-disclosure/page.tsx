@@ -67,17 +67,17 @@ If you have questions about any of this, or you notice something you think is mi
 
 export default function AffiliateDisclosurePage() {
   return (
-    <div className="min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
+    <div className="mc-paper-grain min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
       <main className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
         <article className="mx-auto max-w-2xl">
           <Link
             href="/"
-            className="text-sm font-medium text-[#a8332a] hover:underline"
+            className="mc-link mc-focus text-sm font-medium text-[#a8332a]"
           >
             ← Back to home
           </Link>
-          <h1 className="mt-8 font-head text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
+          <h1 className="mc-reveal mt-8 font-head text-3xl font-medium leading-tight tracking-tight text-[#1a1a1a] sm:text-4xl">
             Affiliate Disclosure
           </h1>
           <p className="mt-4 text-sm text-[#5a544a]">Last updated: June 1, 2026</p>

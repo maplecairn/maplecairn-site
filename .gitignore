@@ -55,6 +55,9 @@ AGENTS.md
 # Local design previews / type specimens (scratch, not for publish)
 /previews/
 
+# Brand / logo briefs and shareable design docs (kept out of the public repo)
+/brand/
+
 # Social / short-form campaign artifacts (reels, carousels, slides, mockups, scripts).
 # Everything lives in /social/; the globs below are belt-and-suspenders so a stray
 # artifact can never reach a public commit even if it lands outside that folder.

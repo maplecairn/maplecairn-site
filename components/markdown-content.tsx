@@ -34,17 +34,17 @@ export function MarkdownContent({ content }: { content: string }) {
 
           if (href.startsWith("http")) {
             return (
-              <a href={href} target="_blank" rel="noopener noreferrer">
+              <a href={href} target="_blank" rel="noopener noreferrer" className="mc-focus">
                 {children}
               </a>
             );
           }
 
           if (href.startsWith("mailto:")) {
-            return <a href={href}>{children}</a>;
+            return <a href={href} className="mc-focus">{children}</a>;
           }
 
-          return <Link href={href}>{children}</Link>;
+          return <Link href={href} className="mc-focus">{children}</Link>;
         },
         h2: ({ children }) => (
           <>
