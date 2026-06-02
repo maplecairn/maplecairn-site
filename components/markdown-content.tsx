@@ -15,7 +15,6 @@ const proseClassName = [
   "[&_pre]:whitespace-pre-wrap [&_pre]:break-words",
   "[&_blockquote]:my-5 [&_blockquote]:border-l-2 [&_blockquote]:border-[#a8332a]/40 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#5a544a]",
   "[&_hr]:my-8 [&_hr]:border-[rgba(0,0,0,0.08)]",
-  "[&_table]:my-5 [&_table]:w-full [&_table]:border-collapse [&_table]:text-sm",
   "[&_thead]:border-b-2 [&_thead]:border-[#dcd2c3]",
   "[&_th]:py-2 [&_th]:pr-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-[#1a1a1a]",
   "[&_td]:py-2.5 [&_td]:pr-4 [&_td]:border-b [&_td]:border-[rgba(0,0,0,0.06)] [&_td]:align-top",
@@ -61,6 +60,13 @@ export function MarkdownContent({ content }: { content: string }) {
           <h3 className="mt-8 mb-2 font-head text-lg font-semibold text-[#1a1a1a] sm:text-xl">
             {children}
           </h3>
+        ),
+        table: ({ children }) => (
+          // Wrap tables so a wide one scrolls inside its own box instead of
+          // pushing the whole page wide on mobile.
+          <div className="my-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">{children}</table>
+          </div>
         ),
         img: ({ src, alt }) => {
           if (typeof src !== "string") {
