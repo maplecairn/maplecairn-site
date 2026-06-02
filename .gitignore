@@ -51,3 +51,13 @@ AGENTS.md
 # Local screenshots and Playwright MCP scratch output (snapshots, console logs)
 /screenshots/
 /.playwright-mcp/
+
+# Social / short-form campaign artifacts (reels, carousels, slides, mockups, scripts).
+# Everything lives in /social/; the globs below are belt-and-suspenders so a stray
+# artifact can never reach a public commit even if it lands outside that folder.
+/social/
+mockup-*
+carousel-*
+slide-*
+storyboard-*
+reel-campaign*
