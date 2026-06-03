@@ -36,6 +36,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://maplecairn.ca"),
+  manifest: "/site.webmanifest",
   title: {
     default: "Maple Cairn · Canadian personal finance + build log",
     template: "%s · Maple Cairn",

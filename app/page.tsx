@@ -57,12 +57,12 @@ export default function Home() {
             </div>
             <div className="flex min-h-[280px] items-center justify-center lg:min-h-[360px]">
               <Image
-                src="/images/logo/cairn.png"
-                alt="Maple Cairn logo: a stacked cairn in brick red"
-                width={557}
-                height={605}
+                src="/images/logo/maple-cairn-glyph.png"
+                alt="Maple Cairn logo: a stack of coins with a maple leaf"
+                width={533}
+                height={371}
                 priority
-                className="h-auto w-full max-w-[200px] md:max-w-[260px]"
+                className="h-auto w-full max-w-[300px] md:max-w-[380px]"
               />
             </div>
           </div>

@@ -10,7 +10,7 @@ export function SiteFooter() {
     >
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
         <Link href="/" className="mc-focus flex items-center gap-2.5">
-          <CairnNavIcon className="shrink-0" width={22} height={26} />
+          <CairnNavIcon className="shrink-0" height={22} />
           <span className="font-head text-base font-medium">Maple Cairn</span>
         </Link>
         <nav
