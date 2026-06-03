@@ -55,14 +55,14 @@ export default function Home() {
                 I&apos;ll email you when the newsletter launches. No spam.
               </p>
             </div>
-            <div className="flex min-h-[280px] items-center justify-center lg:min-h-[360px]">
+            <div className="flex items-center justify-center">
               <Image
                 src="/images/logo/maple-cairn-glyph.png"
                 alt="Maple Cairn logo: a stack of coins with a maple leaf"
                 width={533}
                 height={371}
                 priority
-                className="h-auto w-full max-w-[300px] md:max-w-[380px]"
+                className="h-auto w-full max-w-[340px] md:max-w-[410px]"
               />
             </div>
           </div>

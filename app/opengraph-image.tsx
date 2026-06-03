@@ -1,8 +1,16 @@
+import fs from "fs";
+import path from "path";
 import { ImageResponse } from "next/og";
 
 export const alt = "Maple Cairn, Canadian personal finance and build log";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const runtime = "nodejs";
+
+// The real coin-stack glyph, inlined so satori can render it.
+const GLYPH = `data:image/png;base64,${fs
+  .readFileSync(path.join(process.cwd(), "public/images/logo/maple-cairn-glyph.png"))
+  .toString("base64")}`;
 
 // Google Fonts serves TTF (which satori needs) when fetched with an old UA;
 // the default CSS returns woff2, which satori can't parse. Returns null on any
@@ -23,7 +31,6 @@ async function loadFraunces(): Promise<ArrayBuffer | null> {
 
 export default async function OpengraphImage() {
   const fraunces = await loadFraunces();
-  const cairn = [70, 124, 168, 208];
 
   return new ImageResponse(
     (
@@ -70,14 +77,8 @@ export default async function OpengraphImage() {
               Canadian personal finance for self-employed builders. Real numbers, no fluff.
             </div>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
-            {cairn.map((w, i) => (
-              <div
-                key={i}
-                style={{ width: w, height: 46, borderRadius: 24, backgroundColor: "#a8332a" }}
-              />
-            ))}
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={GLYPH} width={280} height={195} alt="" />
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
