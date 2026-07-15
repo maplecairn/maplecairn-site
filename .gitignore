@@ -67,3 +67,6 @@ carousel-*
 slide-*
 storyboard-*
 reel-campaign*
+
+# RiftArb: independent local-only project with its own git repo. Never publish.
+riftarb/
