@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     template: "%s · Maple Cairn",
   },
   description:
-    "Canadian personal finance for self-employed builders: cards, taxes, and AI-powered micro products. Weekly writing and build logs from Toronto.",
+    "Canadian personal finance for self-employed builders: cards, taxes, and AI-powered micro products. Writing and build logs from Toronto.",
   openGraph: {
     type: "website",
     siteName: "Maple Cairn",

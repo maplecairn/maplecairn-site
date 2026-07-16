@@ -23,7 +23,7 @@ There are two halves to the site.
 
 A few promises. I only write about products I actually use. Where there's an affiliate link I say so, and the full breakdown lives on the [affiliate disclosure](/affiliate-disclosure) page. Nothing here is financial advice. I'm not an accountant or a CFP, and your situation can differ from mine in ways I can't see from here.
 
-If that sounds like your kind of thing, the newsletter is the best way to follow along.
+If that sounds like your kind of thing, [get on the list](/#subscribe) and I'll email you when the newsletter launches.
 
 Michael K`;
 

@@ -95,7 +95,7 @@ export function SiteHeader() {
             rel="noopener noreferrer"
             className="mc-btn mc-focus-on-brick shrink-0 rounded-full bg-[#a8332a] px-5 py-2 text-sm font-medium text-white hover:bg-[#8e2b24]"
           >
-            Subscribe
+            Get notified
           </a>
           <button
             type="button"
@@ -168,7 +168,7 @@ export function SiteHeader() {
             onClick={() => setMenuOpen(false)}
             className="mc-btn mc-focus-on-brick mt-2 rounded-full bg-[#a8332a] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#8e2b24]"
           >
-            Subscribe
+            Get notified
           </a>
         </nav>
       )}

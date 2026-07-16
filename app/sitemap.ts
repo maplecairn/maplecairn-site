@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/sole-prop-stack`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/build-log`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/affiliate-disclosure`, changeFrequency: "yearly", priority: 0.3 },
     ...posts.map((p) => ({
       url: `${BASE}${p.path}`,

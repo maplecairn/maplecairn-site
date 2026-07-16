@@ -52,7 +52,7 @@ GCR publishes their full terms on each card's product page. The rebate amounts l
 
 ## Tools I link without an affiliate relationship
 
-The Tools section of the homepage lists Cursor, Claude, Vercel, and Beehiiv. The Claude link is a referral link (above). The Cursor, Vercel, and Beehiiv links are not affiliate. I link them because I use them. If any of those relationships change to affiliate in the future, I'll update this page.
+The Tools section of the homepage lists Cursor, Claude, and Vercel. The Claude link is a referral link (above). The Cursor and Vercel links are not affiliate. I link them because I use them. If any of those relationships change to affiliate in the future, I'll update this page.
 
 ## Things I won't do
 
