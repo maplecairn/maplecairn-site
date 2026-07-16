@@ -58,7 +58,7 @@ export function SiteHeader() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 border-b bg-[#faf7f2] px-10 py-5"
+      className="sticky top-0 z-50 border-b bg-[#faf7f2] px-5 sm:px-10 py-5"
       style={{ borderColor: BORDER_SUBTLE }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
@@ -93,7 +93,7 @@ export function SiteHeader() {
             href={NEWSLETTER_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mc-btn mc-focus-on-brick shrink-0 rounded-full bg-[#a8332a] px-5 py-2 text-sm font-medium text-white hover:bg-[#8e2b24]"
+            className="mc-btn mc-focus-on-brick hidden shrink-0 rounded-full bg-[#a8332a] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#8e2b24] sm:inline-block"
           >
             Get notified
           </a>

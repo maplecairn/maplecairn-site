@@ -11,16 +11,15 @@ export const metadata: Metadata = {
     "How affiliate marketing works on Maple Cairn, who I'm partnered with, and what each side gets out of it.",
 };
 
-const content = `Maple Cairn includes affiliate links to a small number of products and services I personally use. When you sign up through one of these links, I may earn a referral fee, commission, or platform-tier benefit. In most cases, you (the reader) also get a benefit on your end. The form varies by affiliate and is laid out below.
+const content = `Maple Cairn includes affiliate links to a small number of products and services I personally use. When you sign up through one of these links, I may earn a referral fee, commission, or platform-tier benefit. In most cases you get something on your end too. What that looks like varies by affiliate; the table below has the specifics.
 
 **What affiliate compensation does and does not do:**
 
 - It helps support the cost of running this site and the time I put into the writing.
-- It does not change the products I recommend or how I describe them.
-- It does not change the price you pay.
-- It does not give me access to your personal information beyond what the platform itself tracks (typically: that the sign-up came from my link, sometimes the rebate amount).
+- It doesn't change the products I recommend, how I describe them, or the price you pay.
+- It doesn't give me access to your personal information beyond what the platform itself tracks (typically: that the sign-up came from my link, sometimes the rebate amount).
 
-If a product I write about is not an affiliate relationship, I'll say so explicitly.
+If there's no affiliate relationship behind something I write about, I'll say so.
 
 ## Current affiliate relationships
 
@@ -38,21 +37,21 @@ This list grows as I add new affiliates. The current set covers the products I'v
 
 ## How Great Canadian Rebates works
 
-GCR is a Canadian cash back portal. When you apply for a credit card through one of GCR's links, GCR pays you a cash back rebate after the card is approved, and the card issuer pays GCR a referral fee. I get a small portion of GCR's fee for referring you to GCR.
+GCR is a Canadian cash back portal. When you apply for a credit card through one of GCR's links, GCR pays you a cash back rebate after the card is approved, and the card issuer pays GCR a referral fee. I get a small cut of that fee for the referral.
 
 To actually receive your GCR rebate, you have to:
 
 - Apply directly through the GCR link without browsing to other pages mid-application
 - Save the reference number the issuer provides at application
 - Be a first-time applicant for that specific card
-- Skip any outside promo code during the application, which voids the rebate
+- Skip outside promo codes during the application (using one voids the rebate)
 - Follow up with GCR within 3 months if the rebate hasn't posted
 
 GCR publishes their full terms on each card's product page. The rebate amounts listed above are current as of writing and may change.
 
 ## Tools I link without an affiliate relationship
 
-The Tools section of the homepage lists Cursor, Claude, and Vercel. The Claude link is a referral link (above). The Cursor and Vercel links are not affiliate. I link them because I use them. If any of those relationships change to affiliate in the future, I'll update this page.
+The Tools section of the homepage lists Cursor, Claude, and Vercel. Only the Claude link is a referral link (above); Cursor and Vercel aren't affiliate. I link them because I use them. If any of those relationships change to affiliate in the future, I'll update this page.
 
 ## Things I won't do
 
@@ -69,7 +68,7 @@ export default function AffiliateDisclosurePage() {
   return (
     <div className="mc-paper-grain min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
+      <main className="border-b px-5 sm:px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
         <article className="mx-auto max-w-2xl">
           <Link
             href="/"

@@ -40,7 +40,7 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
   return (
     <div className="mc-paper-grain min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
+      <main className="border-b px-5 sm:px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
         <article className="mx-auto max-w-2xl">
           <Link
             href="/build-log"
@@ -63,7 +63,7 @@ export default async function BuildLogEntryPage({ params }: PageProps) {
           </div>
         </article>
       </main>
-      <section className="px-10 py-10">
+      <section className="px-5 sm:px-10 py-10">
         <div className="mx-auto flex max-w-2xl flex-col gap-4 text-sm text-[#5a544a] sm:flex-row sm:items-center sm:justify-between">
           <Link href="/build-log" className="mc-link mc-focus font-medium text-[#a8332a]">
             ← All build log entries

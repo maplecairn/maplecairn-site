@@ -17,18 +17,18 @@ export default function SolePropStackIndexPage() {
   return (
     <div className="mc-paper-grain min-h-full bg-[#faf7f2] font-sans text-[#1a1a1a] antialiased">
       <SiteHeader />
-      <main className="px-10 py-12">
+      <main className="px-5 sm:px-10 py-12">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm text-[#5a544a]">
             <Link href="/" className="mc-link mc-focus font-medium text-[#a8332a]">
-              ← Back home
+              ← Back to home
             </Link>
           </p>
           <p className="mt-10 text-xs font-medium uppercase tracking-widest text-[#a8332a]">
             Sole prop stack
           </p>
           <h1 className="mc-reveal mt-2 font-head text-4xl font-medium tracking-tight text-[#1a1a1a] sm:text-5xl">
-            Sole Prop Stack
+            What I&apos;m running
           </h1>
           <p className="mt-4 text-base leading-relaxed text-[#5a544a]">
             Canadian personal finance for the self-employed and the side-hustle builder.
@@ -46,7 +46,7 @@ export default function SolePropStackIndexPage() {
                       className="rounded-full px-2.5 py-1 font-medium uppercase tracking-wider text-[#7a2a23]"
                       style={{ backgroundColor: "rgba(168,51,42,0.08)" }}
                     >
-                      Entry {post.entry_number}
+                      Post {post.entry_number}
                     </span>
                     <span>
                       {formatSolePropStackDate(post.date)} · {post.readMinutes} min read

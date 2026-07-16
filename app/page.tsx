@@ -23,12 +23,12 @@ export default function Home() {
       <SiteHeader />
 
       <main>
-        <section className="mc-hero border-b px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
+        <section className="mc-hero border-b px-5 sm:px-10 py-12" style={{ borderColor: BORDER_SUBTLE }}>
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="mc-reveal-group min-w-0">
               <p className="mc-reveal mb-7 inline-flex items-center gap-2 rounded-full bg-[rgba(168,51,42,0.08)] px-3.5 py-1.5 text-xs font-medium text-[#7a2a23]">
                 <MapleTrustIcon className="h-3.5 w-3.5 shrink-0" />
-                Made in Canada · Newsletter coming soon
+                Made in Canada
               </p>
               <h1 className="mc-reveal mc-reveal--lead font-head text-5xl font-medium leading-none tracking-tight text-[#1a1a1a] sm:text-6xl">
                 Canadian personal finance hacks from a{" "}
@@ -70,7 +70,7 @@ export default function Home() {
 
         <section
           id="writing"
-          className="mc-section-white scroll-mt-24 border-t bg-white px-10 py-14"
+          className="mc-section-white scroll-mt-24 border-t bg-white px-5 sm:px-10 py-14"
           style={{ borderColor: BORDER_SUBTLE }}
         >
           <div className="mx-auto max-w-6xl">
@@ -139,7 +139,7 @@ export default function Home() {
 
         <section
           id="build-log"
-          className="scroll-mt-24 border-t px-10 py-14"
+          className="scroll-mt-24 border-t px-5 sm:px-10 py-14"
           style={{ borderColor: BORDER_SUBTLE, backgroundColor: "#faf7f2" }}
         >
           <div className="mx-auto max-w-6xl">
@@ -149,8 +149,8 @@ export default function Home() {
                 What I&apos;m shipping
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-[#5a544a]">
-                Micro products built with AI tools. Live links, real numbers, and the lessons that only come
-                from shipping.
+                Micro products built with AI tools. Live links, real numbers, and the lessons from
+                actually shipping.
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
@@ -236,8 +236,8 @@ export default function Home() {
                   Riftbound
                 </h3>
                 <p className="mb-4 text-sm leading-relaxed text-[#5a544a]">
-                  A tool for Riftbound, the League of Legends TCG. Built and running in private testing.
-                  Details when it comes out of stealth.
+                  Something small for Riftbound, the League of Legends TCG. Built and running in
+                  private testing. Details when it&apos;s ready to share.
                 </p>
                 <div
                   className="flex items-center border-t pt-4 text-xs text-[#5a544a]"
@@ -264,8 +264,8 @@ export default function Home() {
                   Subscribe to see what I build next.
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#5a544a]">
-                  Newsletter readers will get build logs first, including the wins, fails, and the
-                  actual numbers.
+                  Newsletter readers will get build logs first, including the wins, the fails, and
+                  the actual numbers.
                 </p>
                 <a href="#subscribe" className="mc-link mc-focus mt-4 text-sm font-medium text-[#a8332a]">
                   Subscribe <span className="mc-arrow" aria-hidden>→</span>
@@ -277,7 +277,7 @@ export default function Home() {
 
         <section
           id="tools"
-          className="mc-section-white scroll-mt-24 border-t bg-white px-10 py-14"
+          className="mc-section-white scroll-mt-24 border-t bg-white px-5 sm:px-10 py-14"
           style={{ borderColor: BORDER_SUBTLE }}
         >
           <div className="mx-auto max-w-6xl">
@@ -301,10 +301,10 @@ export default function Home() {
                   </span>
                   <span className="text-base font-medium text-[#1a1a1a]">Cursor</span>
                 </div>
-                <p className="mb-3 text-xs leading-relaxed text-[#5a544a]">
+                <p className="mb-3 text-sm leading-relaxed text-[#5a544a]">
                   My code editor. Where the actual building happens.
                 </p>
-                <a href="https://cursor.com" className="mc-link mc-focus text-xs font-medium text-[#a8332a]">
+                <a href="https://cursor.com" className="mc-link mc-focus inline-flex min-h-10 items-center text-sm font-medium text-[#a8332a]">
                   Try it <span className="mc-arrow" aria-hidden>→</span>
                 </a>
               </article>
@@ -318,10 +318,10 @@ export default function Home() {
                   </span>
                   <span className="text-base font-medium text-[#1a1a1a]">Claude</span>
                 </div>
-                <p className="mb-3 text-xs leading-relaxed text-[#5a544a]">
+                <p className="mb-3 text-sm leading-relaxed text-[#5a544a]">
                   The thinking partner for strategy, copy, and design.
                 </p>
-                <a href="https://claude.ai/referral/mPo9S2mSLA" className="mc-link mc-focus text-xs font-medium text-[#a8332a]">
+                <a href="https://claude.ai/referral/mPo9S2mSLA" className="mc-link mc-focus inline-flex min-h-10 items-center text-sm font-medium text-[#a8332a]">
                   Try it <span className="mc-arrow" aria-hidden>→</span>
                 </a>
               </article>
@@ -332,10 +332,10 @@ export default function Home() {
                   </span>
                   <span className="text-base font-medium text-[#1a1a1a]">Vercel</span>
                 </div>
-                <p className="mb-3 text-xs leading-relaxed text-[#5a544a]">
+                <p className="mb-3 text-sm leading-relaxed text-[#5a544a]">
                   Hosts this site. Auto-deploys on every commit.
                 </p>
-                <a href="https://vercel.com" className="mc-link mc-focus text-xs font-medium text-[#a8332a]">
+                <a href="https://vercel.com" className="mc-link mc-focus inline-flex min-h-10 items-center text-sm font-medium text-[#a8332a]">
                   Try it <span className="mc-arrow" aria-hidden>→</span>
                 </a>
               </article>

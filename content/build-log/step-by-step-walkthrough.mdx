@@ -12,9 +12,9 @@ Same project, different angle. If you've been thinking about shipping something 
 
 ## Before you start
 
-What this assumes about you: you can navigate folders, you've used the command line a few times, and you've heard of Git even if you've never used it seriously. If you're more advanced than that, skip ahead. If you're less, the post still works but expect to Google some terms (or use the callouts I've sprinkled throughout).
+What this assumes about you: you can navigate folders, you've used the command line a few times, and you've heard of Git even if you've never used it seriously. If you're more advanced than that, skip ahead. If you're less, the post still works but expect to Google some terms (or use the callouts along the way).
 
-What this assumes about your machine: Windows, Mac, or Linux. The whole post is written from a Windows experience because that's what I had. Mac and Linux readers can skip the WSL2 section (Step 2) and otherwise the steps are identical.
+On the machine side: Windows, Mac, or Linux. The whole post is written from a Windows experience because that's what I had. Mac and Linux readers can skip the WSL2 section (Step 2) and otherwise the steps are identical.
 
 What you'll have at the end: a real website on a real custom domain, mobile-responsive, with auto-deploy on every code change, and a blog you can publish posts to by saving a single file. Total cost: ~$31 CAD for the domain (one-time), then about $20/month for Claude Pro if you want it. Vercel hosting and GitHub are free at this scale.
 
@@ -28,7 +28,7 @@ The biggest mistake I'd make if I started over: rushing to code before knowing w
 
 Spend at least an hour on the name. The friction here is real. A good name is short, available on the .ca and .com, available on Instagram + TikTok + X + YouTube, and means something to you. Most names fail at least one of these tests.
 
-The single most useful tool here is [namechk.com](https://namechk.com). Type a candidate name, it checks availability across all major social platforms and TLDs simultaneously. Saves you from picking a name only to discover the .ca is taken or the Instagram handle is gone.
+The single most useful tool here is [namechk.com](https://namechk.com). Type a candidate name, it checks availability across all major social platforms and TLDs simultaneously. Better to learn the .ca is taken or the Instagram handle is gone before you get attached, not after.
 
 > **What's a TLD?**
 > The part after the dot in a domain name. ".com" is a TLD. So is ".ca", ".io", ".dev". You can register the same name under multiple TLDs (the way I have both maplecairn.ca and maplecairn.com), and each one is technically a separate domain you own.
@@ -96,7 +96,7 @@ Hit Enter at each prompt for the defaults. You can skip the passphrase for now.
 
 ## 3. Scaffold your first Next.js project
 
-Now the actual building begins.
+The actual building starts here.
 
 In your Ubuntu terminal, create a folder for your dev projects and scaffold a Next.js app:
 
@@ -107,7 +107,7 @@ npx create-next-app@latest yourproject
 ```
 
 > **What's Next.js?**
-> A web framework built on top of React. Handles routing (which URL shows which page), server-side rendering, and a bunch of optimization stuff out of the box. It's what most modern websites are built with in 2026. The reason we picked it: pairs natively with Vercel hosting and has the smoothest deploy story.
+> A web framework built on top of React. Handles routing (which URL shows which page), server-side rendering, and a bunch of optimization stuff out of the box. It's what most modern websites are built with in 2026. The reason I picked it: pairs natively with Vercel hosting and has the smoothest deploy story.
 
 You'll get a series of prompts. Choose these answers for the cleanest starting point:
 
@@ -119,7 +119,7 @@ You'll get a series of prompts. Choose these answers for the cleanest starting p
 - Turbopack: **Yes** (faster dev experience)
 - Custom import alias: **No**
 
-The scaffold takes 1-2 minutes. You now have a working Next.js project with TypeScript, Tailwind, and the modern App Router setup. Verify it runs:
+The scaffold takes 1-2 minutes. Net result: a working Next.js project with TypeScript, Tailwind, and the modern App Router setup. Verify it runs:
 
 ```bash
 cd yourproject
@@ -184,7 +184,7 @@ Now connect Vercel:
 Vercel gives you a URL like `your-project.vercel.app` within 60 seconds. Your site is live.
 
 > **What's auto-deploy?**
-> Vercel watches your GitHub repo. Every time you push new code to your main branch, Vercel automatically builds and deploys it within 30-60 seconds. No FTP, no manual upload, no "click here to deploy." Save a file → git push → it's live. This is one of the genuinely magical parts of modern web hosting.
+> Vercel watches your GitHub repo. Every time you push new code to your main branch, Vercel automatically builds and deploys it within 30-60 seconds. No FTP, no manual upload, no "click here to deploy." Save a file → git push → it's live. It's the part of modern hosting that still feels like cheating.
 
 From here forward, every `git push` to your main branch triggers a fresh deploy in 30-60 seconds.
 
@@ -213,7 +213,7 @@ When DNS propagation completes, your custom domain shows the Next.js welcome pag
 > **What's HTTPS and CDN?**
 > HTTPS is the encrypted version of HTTP, the little padlock in your browser's address bar. Vercel sets it up automatically for any domain you connect. CDN stands for Content Delivery Network: copies of your site on servers around the world, so a visitor in Tokyo loads it from a nearby server instead of a distant one. Free with Vercel.
 
-End-to-end cost so far: $31 for the domains. End-to-end time: 60-90 minutes if everything goes smoothly.
+End-to-end cost so far: $31 for the domains. Time: 60-90 minutes if everything goes smoothly.
 
 ## 6. Design the homepage iteratively with Cursor and Claude
 
@@ -235,13 +235,13 @@ A few hard lessons from going through this four times:
 > **What's a hex code?**
 > A six-character code that precisely identifies one specific color. `#a8332a` is the exact brick-red I use on this site. `#ffffff` is pure white. `#000000` is pure black. Designers use hex codes because "red" is ambiguous, but `#a8332a` is exactly one color out of 16 million.
 
-AI tools execute precise specs beautifully and guess badly. The first three iterations of my design came back coral instead of brick because I wasn't specific enough.
+Give these tools a precise spec and they execute it beautifully. Give them a vibe and they guess. The first three iterations of my design came back coral instead of brick because I wasn't specific enough.
 
 **Iterate in small slices.** "Redesign the hero section" works. "Redesign the entire site" produces mush. Cursor handles one section at a time well.
 
 **Always check mobile.** Cursor will produce desktop-perfect code that breaks on phones. Use Chrome DevTools' device toolbar (Ctrl+Shift+M on Windows) to test as you build. Every section you finish, resize to phone width and verify.
 
-**The skill that matters most isn't writing code.** It's scoping requests well and iterating fast. Being precise about what you want, anticipating edge cases, accepting that the first output won't be right. The same instinct that makes you good at managing people or running consulting engagements is exactly what makes you good at directing AI coding tools.
+**The skill that matters most isn't writing code.** It's scoping requests well and iterating fast. I made this exact point in [Entry 01](/build-log/maple-cairn-in-two-days), and a week of building since has only confirmed it.
 
 When your homepage lands somewhere you like, commit and ship:
 
@@ -251,7 +251,7 @@ git commit -m "Homepage v1"
 git push origin main
 ```
 
-Vercel auto-deploys in under a minute. Refresh your domain. You now have a custom-designed homepage live on the internet.
+Vercel auto-deploys in under a minute. Refresh your domain. That's your homepage: custom-designed, live on the internet.
 
 ## 7. Add a blog with MDX
 
@@ -260,7 +260,7 @@ Hand-coding each blog post as a separate Next.js page gets miserable fast. Set u
 > **What's MDX?**
 > Markdown + JSX. Markdown is the simple text formatting you see on GitHub READMEs and Reddit (`# Heading`, `**bold**`, `[link](url)`). JSX is React's syntax for writing components. MDX combines them: you write a blog post mostly in plain Markdown (fast, readable) but can drop in interactive React components when you need to. For text-heavy blogs, plain Markdown is plenty.
 
-A quick note on the stack choice. There's a "true MDX" approach using `@next/mdx` and a simpler approach using `gray-matter` + `react-markdown` + `remark-gfm`. The simpler approach can't embed React components inside posts, but for text-heavy blogs it's plenty. Cursor picked it when I set up the blog infrastructure, and I've had zero regrets. Saves complexity, and I can migrate later if needed.
+One thing about the stack choice. There's a "true MDX" approach using `@next/mdx` and a simpler approach using `gray-matter` + `react-markdown` + `remark-gfm`. The simpler approach can't embed React components inside posts, but for text-heavy blogs it's plenty. Cursor picked it when I set up the blog infrastructure, and I've had zero regrets. Saves complexity, and I can migrate later if needed.
 
 In Cursor's AI chat, paste:
 
@@ -270,7 +270,7 @@ Set up MDX blog infrastructure for this Next.js App Router project.
 1. Install gray-matter, react-markdown, and remark-gfm.
 2. Create a content/blog/ folder at the project root for MDX post files.
 3. Create lib/posts.ts with helpers that read MDX files from content/blog/, parse frontmatter with gray-matter, and return typed post objects (title, description, date, slug, content, readMinutes). Include getPostSlugs(), getPostBySlug(slug), and getAllPosts() sorted by date descending.
-4. Create app/blog/page.tsx as the blog index — list all posts with title, date, and description, linking to each post page.
+4. Create app/blog/page.tsx as the blog index: list all posts with title, date, and description, linking to each post page.
 5. Create app/blog/[slug]/page.tsx as the post template. Use generateStaticParams for SSG, generateMetadata for per-post title/description, and render the content with react-markdown + remark-gfm.
 6. Style with Tailwind to match the existing site (same fonts, colors, spacing).
 7. Add one sample post at content/blog/hello-world.mdx so I can verify the wiring end to end.
@@ -344,7 +344,7 @@ If I started over knowing what I know now:
 
 **I'd ship the first blog post the same day the site goes live.** I waited two days, and those two days felt much longer than they should have. The site without content is uncomfortable to look at. Even a rough first post is better than the placeholder.
 
-The mechanics of getting a site live are easier than they've ever been. What's hard is the discipline to actually finish, picking a small enough scope, and shipping something you're slightly embarrassed by. The unshipped perfect version doesn't exist. The shipped rough one does.
+The mechanics of getting a site live are easier than they've ever been. What's hard is the discipline to actually finish, picking a small enough scope, and shipping something you're slightly embarrassed by.
 
 The next post is a Sole Prop Stack entry, now live: [my Canadian credit card stack](/sole-prop-stack/canadian-credit-card-stack), what I actually use and the hacks that move the needle. If that sounds useful, share this post with one person who'd want it.
 

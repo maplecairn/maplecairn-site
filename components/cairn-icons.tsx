@@ -1,4 +1,6 @@
-// Temporary coin-stack logo glyph (intrinsic 934x421). Height drives the size;
+import Image from "next/image";
+
+// Temporary coin-stack logo glyph (intrinsic 533x371). Height drives the size;
 // width follows the glyph aspect ratio.
 const GLYPH_ASPECT = 533 / 371;
 
@@ -11,8 +13,7 @@ export function CairnNavIcon({
 }) {
   const width = Math.round(height * GLYPH_ASPECT);
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/logo/maple-cairn-glyph.png"
       alt=""
       width={width}

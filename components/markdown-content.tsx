@@ -11,7 +11,7 @@ const proseClassName = [
   "[&_ul]:mb-4 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-6",
   "[&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:space-y-1.5 [&_ol]:pl-6",
   "[&_li]:pl-1",
-  "[&_code]:rounded [&_code]:bg-[rgba(0,0,0,0.05)] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_code]:text-[#1a1a1a]",
+  "[&_code]:rounded [&_code]:bg-[rgba(0,0,0,0.05)] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_code]:text-[#1a1a1a] [&_code]:[overflow-wrap:anywhere]",
   "[&_pre]:whitespace-pre-wrap [&_pre]:break-words",
   "[&_blockquote]:my-5 [&_blockquote]:border-l-2 [&_blockquote]:border-[#a8332a]/40 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-[#5a544a]",
   "[&_hr]:my-8 [&_hr]:border-[rgba(0,0,0,0.08)]",
@@ -89,7 +89,15 @@ export function MarkdownContent({ content }: { content: string }) {
                   : "my-8 h-auto max-w-full rounded-lg";
 
           // eslint-disable-next-line @next/next/no-img-element
-          return <img src={src} alt={alt ?? ""} className={className} />;
+          return (
+            <img
+              src={src}
+              alt={alt ?? ""}
+              className={className}
+              loading={isHero ? undefined : "lazy"}
+              decoding="async"
+            />
+          );
         },
         }}
       >
