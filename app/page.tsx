@@ -205,8 +205,8 @@ export default function Home() {
                   Sole Prop Tax Estimator
                 </h3>
                 <p className="mb-4 text-sm leading-relaxed text-[#5a544a]">
-                  A free tool to estimate CRA taxes, GST/HST, and CPP for Canadian sole proprietors.
-                  Province-aware. Live soon.
+                  A free tool to estimate CRA taxes, GST/HST, and CPP for Canadian sole proprietors
+                  in any province. Live soon.
                 </p>
                 <div
                   className="flex items-center border-t pt-4 text-xs text-[#5a544a]"

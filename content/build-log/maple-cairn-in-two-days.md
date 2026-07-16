@@ -16,7 +16,7 @@ It's not a polished case study. It's a snapshot of what "vibe coding" actually l
 
 ## Why I'm doing this at all
 
-I'm on sabbatical. Rather than spend it on a beach, I wanted to learn what it feels like to build things instead of strategize about them. My background has been semi-technical. Close enough to engineering to know what good looks like, never the person actually writing the code. The tooling is good enough now that anyone willing to dabble for a few hours can either get noticeably more productive at their day job or build something on the side that compounds.
+I wanted to learn what it feels like to build things instead of strategize about them. My background has been semi-technical. Close enough to engineering to know what good looks like, never the person actually writing the code. The tooling is good enough now that anyone willing to dabble for a few hours can either get noticeably more productive at their day job or build something on the side that compounds.
 
 That's what got me excited. I wanted to explore operating as a solo founder. Running my own little business end-to-end, learning the parts I've outsourced or had organizational support for my whole career.
 
@@ -83,6 +83,8 @@ If you're working on a laptop that also holds sensitive personal stuff, I'd do t
 **The maple-red color problem.** I wanted a deep brick-red, the kind CBC uses. Restrained, Canadian-feeling. Cursor kept giving me bright coral instead. Three rounds of "no, darker, more brick" before it stuck. The lesson: AI tools execute precise specs beautifully and guess badly. Give them hex codes, not vibes.
 
 **On monetization.** No affiliate deals live yet. For now, if a post is useful, the most helpful thing is to share it. Newsletter signup coming soon.
+
+*Update, July 2026: affiliate links are now live in some posts, starting with [the credit card stack](/sole-prop-stack/canadian-credit-card-stack). The full breakdown lives on the [affiliate disclosure](/affiliate-disclosure) page.*
 
 ## What surprised me
 
